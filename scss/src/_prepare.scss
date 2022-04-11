@@ -1,0 +1,49 @@
+
+@mixin component {
+    background-color: var(--bg-color);
+    border-color: var(--border-color);
+    color: var(--text-color);
+    height: var(--height);
+    width: var(--width);
+    padding: var(--padding-y) var(--padding-x);
+    box-shadow: 0 0 0 0.25rem var(--shadow-color);
+  
+  
+    &:hover {
+      background-color: var(--hover-bg-color);
+      border-color: var(--hover-border-color);
+      color: var(--hover-text-color);
+      box-shadow: 0 0 0 0.25rem var(--shadow-shadow-color);
+    }
+  
+    &:focus {
+      background-color: var(--focus-bg-color);
+      color: var(--focus-text-color);
+      border-color: var(--focus-border-color);
+      box-shadow: 0 0 0 0.25rem var(--focus-shadow-color);
+    }
+  }
+  
+  
+  @mixin component-init {
+    --bg-color: color('light');
+    --text-color: #{content-color(color('light'))};
+    --border-color: transparent;
+    --shadow-color: transparent;
+  
+    --hover-bg-color: var(--bg-color);
+    --hover-text-color: var(--text-color);
+    --hover-border-color: var(--border-color);
+    --hover-shadow-color: var(--shadow-color);
+    
+    --focus-bg-color: var(--bg-color);
+    --focus-text-color: var(--text-color);
+    --focus-border-color: var(--border-color);
+    --focus-shadow-color: var(--shadow-color);
+  
+    --height: var(--height);
+    --width: var(--width);
+    --padding-x: 1rem;
+    --padding-y: 0.5rem;
+   
+  }

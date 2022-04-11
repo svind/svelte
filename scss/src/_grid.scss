@@ -1,0 +1,58 @@
+$breakpoints: (
+  "xs": 0px,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+);
+
+@mixin breakpoint($name) {
+  @media (min-width: map-get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: -4px;
+  margin-right: -4px;
+
+  & > .col {
+    width: auto;
+  }
+
+  & > .btn {
+    align-self: flex-end;
+  }
+
+  & > [class*="col-"] {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  // col-1 col-2 ....
+  @for $var from 0 through 12 {
+    & > .col-#{$var} {
+      width: calc($var * 100% / 12);
+    }
+    & > .offset-#{$var} {
+      margin-left: calc($var * 100% / 12);
+    }
+  }
+
+  // sm:col-3 md:col-11 ....
+  @each $key, $value in ("sm", "md", "lg", "xl") {
+    @include breakpoint($key) {
+      @for $var from 1 through 12 {
+        & > .#{$key}\:col-#{$var} {
+          width: calc($var * 100% / 12);
+        }
+        & > .#{$key}\:offset-#{$var} {
+          margin-left: calc($var * 100% / 12);
+        }
+      }
+    }
+  }
+}

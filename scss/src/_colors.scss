@@ -1,0 +1,75 @@
+$colors: (
+  "red": #e53935,
+  "pink": #d81b60,
+  "purple": #8e24aa,
+  "deep-purple": #5e35b1,
+  "indigo": #3949ab,
+  "blue": #1e88e5,
+  "light-blue": #039be5,
+  "cyan": #00acc1,
+  "teal": #00897b,
+  "green": #43a047,
+  "light-green": #7cb342,
+  "lime": #c0ca33,
+  "yellow": #fdd835,
+  "amber": #ffb300,
+  "orange": #fb8c00,
+  "deep-orange": #f4511e,
+  "blue-grey": #546e7a,
+  "grey": #757575,
+  "light": #f0f0f0,
+  "dark": #303030,
+);
+
+
+@function to-hsl($color) {
+  @return (hue($color), saturation($color), lightness($color));
+}
+
+
+@function color-yiq($color-list) {
+
+  $color: hsl(nth($color-list, 1), nth($color-list, 2), nth($color-list, 3));
+
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+  
+  $yiq: (($red*299)+($green*587)+($blue*114)) * 0.0004;
+
+  @return $yiq;
+}
+  
+@function color($name, $opacity: 1) {
+  @return to-hsl(map-get($colors, $name));
+}
+
+@function content-color($color) {
+  @return if(color-yiq($color) < 50, color('light'), color('dark'));
+}
+
+@function get-color($color, $opacity: 1) {
+  @return #{"hsla(#{$color}, #{$opacity})"}
+}
+
+
+$variants: (
+  "primary": color("blue"),
+  "secondary": color("blue-grey"),
+  "success": color("green"),
+  "info": color("light-blue"),
+  "error": color("red"),
+  "warning": color("orange"),
+  "light": color('light'),
+  "dark": color('dark'),
+);
+
+@function focus-color($color) {
+  @return (nth($color, 1), nth($color, 2), nth($color, 3) - 5%);
+}
+
+@function variant($key: "primary", $opacity: 1) {
+  $color: map-get($variants, $key);
+  @return ($color);
+}
+

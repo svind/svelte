@@ -1,0 +1,25 @@
+@import "./reboot";
+
+@import "./colors";
+@import "./prepare";
+@import "./sizes";
+
+@import "./grid";
+@import "./utilities";
+@import "./overlay";
+
+@import "./components/button";
+@import "./components/badge";
+@import "./components/card";
+@import "./components/icon";
+@import "./components/input";
+@import "./components/label";
+@import "./components/form-group";
+
+:root {
+    @each $key, $value in $variants {
+        --#{$key}: #{$value};
+        --#{$key}-content: #{content-color($value)};
+        --#{$key}-focus: #{focus-color($value)};
+    }
+}

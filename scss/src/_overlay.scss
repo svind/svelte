@@ -1,0 +1,26 @@
+@mixin z($index) {
+  $opacity: 0.05 + $index * 0.01;
+  $bg-color: #{get-color(color('light'), $opacity)};
+  background-color: $bg-color;
+  // border: 1px solid $bg-color;
+  z-index: $index;
+  box-shadow: 0 #{0.5 * $index}px #{2 * $index}px #{-1 * $index}px #000000ff;
+  .dark & {
+    --border-color: #{$bg-color} !important;
+  }
+}
+
+
+.z-0 {
+  @include z(0);
+  background-color: #{get-color(color("light"), 0)};
+  .dark & {
+    --border-color: #{get-color(color("light"), 0.1)} !important;
+  }
+  
+}
+@for $index from 1 through 12 {
+  .z-#{$index} {
+    @include z($index);
+  }
+}

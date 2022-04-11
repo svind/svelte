@@ -1,0 +1,21 @@
+.label {
+  --size: 1rem;
+
+  display: inline-flex;
+  align-items: center;
+  cursor: default;
+  line-height: calc(1.5 * var(--size));
+  font-size: var(--size);
+  font-weight: 500;
+  opacity: 0.875;
+
+  & > input {
+    margin-right: calc(var(--size)/2 - 0.25rem) !important;
+  }
+
+  @each $key, $value in $sizes {
+    &.label-#{$key} {
+      --size: #{$value}rem;
+    }
+  }
+}
