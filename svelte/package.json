@@ -1,0 +1,37 @@
+{
+  "name": "svind",
+  "version": "0.0.15",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build:css": "sass --no-source-map src/lib/scss/index.scss src/lib/styles.css",
+    "prebuild": "npm run build:css",
+    "build": "svelte-kit build",
+    "prepublishOnly": "npm run package",
+    "prepackage": "npm run build:css",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "prepublish": "npm run package",
+    "publish": "cd ./package && npm publish && cd ..",
+    "prepare": "svelte-kit sync",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "sass": "^1.49.11",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.2.6",
+    "svelte-preprocess": "^4.10.1",
+    "svelte2tsx": "^0.5.6",
+    "tslib": "^2.3.1",
+    "typescript": "~4.6.2"
+  },
+  "type": "module",
+  "dependencies": {
+    "@iconify/svelte": "^2.2.1",
+    "@svind/css": "^0.0.1",
+    "clsx": "^1.1.1",
+    "uuid": "^8.3.2"
+  }
+}
