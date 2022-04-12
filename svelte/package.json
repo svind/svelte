@@ -1,13 +1,10 @@
 {
   "name": "svind",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "scripts": {
     "dev": "svelte-kit dev",
-    "build:css": "sass --no-source-map src/lib/scss/index.scss src/lib/styles.css",
-    "prebuild": "npm run build:css",
     "build": "svelte-kit build",
     "prepublishOnly": "npm run package",
-    "prepackage": "npm run build:css",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
     "prepublish": "npm run package",
