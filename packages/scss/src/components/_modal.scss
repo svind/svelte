@@ -1,0 +1,32 @@
+body.modal-open {
+  overflow: hidden;
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(1rem);
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease;
+  padding: 1rem;
+
+  & > * {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.open {
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+  }
+}
