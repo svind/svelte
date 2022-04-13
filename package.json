@@ -10,7 +10,10 @@
     "dev:css": "npm run dev -w packages/scss",
     "deploy:svelte": "npm run deploy -w packages/svelte",
     "deploy:react": "npm run deploy -w packages/react",
-    "deploy:css": "npm run deploy -w packages/scss"
+    "deploy:css": "npm run deploy -w packages/scss",
+    "build:svelte": "npm run build -w packages/svelte",
+    "build:react": "npm run build -w packages/react",
+    "build:css": "npm run build -w packages/scss"
   },
   "repository": {
     "type": "git",

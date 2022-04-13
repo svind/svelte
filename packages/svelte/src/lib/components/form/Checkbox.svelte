@@ -7,6 +7,8 @@
   export let size: Size = undefined;
   export let disabled: boolean = false;
 
+  export let value;
+
   $: classes = clsx("checkbox", "form-control", {
     [`form-control-${size}`]: size,
     [`form-control-${variant}`]: variant,
@@ -17,7 +19,7 @@
 
 <FormGroup inline>
   <label class={labelClasses}>
-    <input {disabled} type="checkbox" class={classes} />
+    <input {disabled} type="checkbox" class={classes} bind:checked={value}/>
     <slot />
   </label>
 </FormGroup>

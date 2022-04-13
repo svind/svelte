@@ -1,6 +1,5 @@
 <script>
-  import { Button, Card, CardBody, Icon, Row } from "$lib";
-  import Col from "$lib/components/grid/Col.svelte";
+  import { Button, Card, CardBody, Checkbox, Col, Icon, Row } from "$lib";
 
   let sidebarOpen = false;
 
@@ -25,10 +24,7 @@
         </h1>
     </div>
 
-    <label class="label">
-      <input type="checkbox" class="form-control" bind:checked={dark} />
-      Dark
-    </label>
+    <Checkbox bind:value={dark} label="Dark"/>
   </Col>
   <Col col={{ xs: 0, sm: 4, md: 3, lg: 2 }} class="sidebar {sidebarOpen ? 'open' : 'close'} sm:flex">
     <ul class="menu">
