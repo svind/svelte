@@ -11,6 +11,7 @@ const config = {
   kit: {
     adapter: adapter({
       out: 'build',
+      filesPrefix: './',
       imports: {
         "TODOOOOOOO": "Fix this"
       }
