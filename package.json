@@ -1,0 +1,25 @@
+{
+  "name": "svind",
+  "version": "0.0.1",
+  "description": "component library for react and svelte",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svind/svind.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/svind/svind/issues"
+  },
+  "homepage": "https://github.com/svind/svind#readme",
+  "workspaces": [
+    "scss",
+    "react",
+    "svelte",
+    "test-react"
+  ]
+}

@@ -1,0 +1,1 @@
+export default ({children, onClick}) => <button onClick={onClick}>{children}</button>
