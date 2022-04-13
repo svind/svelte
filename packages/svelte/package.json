@@ -1,6 +1,6 @@
 {
-  "name": "svind",
-  "version": "0.0.17",
+  "name": "@svind/svelte",
+  "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
