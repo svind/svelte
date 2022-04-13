@@ -4,16 +4,33 @@ component library built from scratch using scss and svelte
 ## installation
 you can install this library as npm package
 ```sh
-npm i svind
+npm i @svind/svelte
+or
+npm i @svind/react
 ```
 
 ## usage 
 
+React
+```jsx
+import '@svind/css/dist/index.css'
+import {Button} from '@svind/react'
+
+export default function App() {
+  return (
+    <Button>Hello World!</Button>
+  )
+}
+
+
+```
+
+Svelte
 ```html
 <script>
-  import 'svind/styles.css';
+  import '@svind/css/dist/index.css';
 
-  import {Button} from 'svind';
+  import {Button} from '@svind/svelte';
 </script>
 
 <Button>Hello World!</Button>
