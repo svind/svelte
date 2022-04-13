@@ -24,7 +24,9 @@
         </h1>
     </div>
 
-    <Checkbox bind:value={dark} label="Dark"/>
+    <Checkbox bind:value={dark}>
+      Dark
+    </Checkbox>
   </Col>
   <Col col={{ xs: 0, sm: 4, md: 3, lg: 2 }} class="sidebar {sidebarOpen ? 'open' : 'close'} sm:flex">
     <ul class="menu">
@@ -35,6 +37,7 @@
         <li class="menu-item"><a href="/components/card">Card</a></li>
         <li class="menu-item"><a href="/components/form">Form</a></li>
         <li class="menu-item"><a href="/components/input">Input</a></li>
+        <li class="menu-item"><a href="/components/z">Z index</a></li>
       </ul>
     </ul>
   </Col>
