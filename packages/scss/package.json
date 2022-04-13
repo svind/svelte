@@ -7,6 +7,7 @@
     "access": "public"
   },
   "scripts": {
+    "dev": "vite",
     "build": "sass ./src/index.scss ./dist/index.css",
     "predeploy": "npm run build",
     "deploy": "npm publish"
@@ -15,5 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "sass": "^1.50.0"
+  },
+  "devDependencies": {
+    "vite": "^2.9.1"
   }
 }
