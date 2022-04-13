@@ -24,4 +24,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "svind"
-          entrypoint: "./packages/svelte/build/server.js" # TODO(Hadi374): update
+          root: "./packages/svelte/build"
+          entrypoint: "server.js" # TODO(Hadi374): update
