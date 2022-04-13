@@ -1,4 +1,4 @@
-import adapter from "@sveltejs/adapter-auto";
+import adapter from "svelte-adapter-deno-deploy";
 import path from 'path'
 import preprocess from "svelte-preprocess";
 
@@ -9,7 +9,12 @@ const config = {
   preprocess: preprocess(),
 
   kit: {
-    adapter: adapter(),
+    adapter: adapter({
+      out: 'build',
+      imports: {
+        "TODOOOOOOO": "Fix this"
+      }
+    }),
     vite: {
       resolve: {
         alias: {
