@@ -1,7 +1,7 @@
 <script>
 import { Row } from "$lib";
 
-  import { FormInput, Label } from "svind/components/form";
+  import { FormInput, Label } from "$lib/components/form";
   import Checkbox from "$lib/components/form/Checkbox.svelte";
   import FormGroup from "svind/components/form/FormGroup.svelte";
   import Radio from "svind/components/form/Radio.svelte";
