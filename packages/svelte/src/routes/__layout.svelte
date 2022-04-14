@@ -37,6 +37,7 @@
         <li class="menu-item"><a href="/components/card">Card</a></li>
         <li class="menu-item"><a href="/components/form">Form</a></li>
         <li class="menu-item"><a href="/components/input">Input</a></li>
+        <li class="menu-item"><a href="/components/modal">Modal</a></li>
         <li class="menu-item"><a href="/components/z">Z index</a></li>
       </ul>
     </ul>
@@ -52,7 +53,8 @@
 
 
 <style lang="scss" global>
-  @import "@svind/css/src/index.scss";
+  @import "@svind/css/dist/index.css";
+  // @import "@svind/css/src/index.scss";
 
   html,
   body {
@@ -86,9 +88,11 @@
         display: none;
         height: 0px;
 
-        @include breakpoint('sm') {
+        // @include breakpoint('sm') {
+          @media (min-width: 600px) {
             display: flex;
-        }
+          }
+        // }
     }
     &.open {
         width: 100%;

@@ -12,10 +12,7 @@ const config = {
     adapter: adapter({
       out: 'build',
       filesPrefix: './',
-      imports: {
-        "TODOOOOOOO": "Fix this"
-      }
-    }),
+      }),
     vite: {
       resolve: {
         alias: {
