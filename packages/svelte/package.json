@@ -1,6 +1,9 @@
 {
   "name": "@svind/svelte",
   "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
