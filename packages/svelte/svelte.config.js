@@ -12,6 +12,9 @@ const config = {
     adapter: adapter({
       out: 'build',
       filesPrefix: './',
+      imports: {
+        "tesssssst": "test" // TODO: Should not have this in future
+      }
       }),
     vite: {
       resolve: {
