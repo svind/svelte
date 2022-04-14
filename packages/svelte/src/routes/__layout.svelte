@@ -3,7 +3,7 @@
 
   let sidebarOpen = false;
 
-  const toggleSidebar = () => sidebarOpen = !sidebarOpen;
+  const toggleSidebar = () => (sidebarOpen = !sidebarOpen);
 
   let dark = false;
 </script>
@@ -11,24 +11,22 @@
 <Row class="page {dark ? 'dark' : ''}">
   <Col col="12" class="flex items-center justify-between header z-3">
     <div class="flex items-center justify-start">
-        <div class="flex sm:hidden">
-
-            <Button size="sm" on:click={toggleSidebar} square>
-                <Icon icon="la:bars" />    
-            </Button>
-        </div>
-        <h1 class="text-muted">
-            <a href="/">
-                Svind Components
-            </a>
-        </h1>
+      <div class="flex sm:hidden">
+        <Button size="sm" on:click={toggleSidebar} square>
+          <Icon icon="la:bars" />
+        </Button>
+      </div>
+      <h1 class="text-muted">
+        <a href="/"> Svind Components </a>
+      </h1>
     </div>
 
-    <Checkbox bind:value={dark}>
-      Dark
-    </Checkbox>
+    <Checkbox bind:value={dark}>Dark</Checkbox>
   </Col>
-  <Col col={{ xs: 0, sm: 4, md: 3, lg: 2 }} class="sidebar {sidebarOpen ? 'open' : 'close'} sm:flex">
+  <Col
+    col={{ xs: 0, sm: 4, md: 3, lg: 2 }}
+    class="sidebar {sidebarOpen ? 'open' : 'close'} sm:flex"
+  >
     <ul class="menu">
       <li class="menu-title text-muted">Components</li>
       <ul>
@@ -51,10 +49,9 @@
   </Col>
 </Row>
 
-
 <style lang="scss" global>
-  @import "@svind/css/dist/index.css";
-  // @import "@svind/css/src/index.scss";
+  // @import "@svind/css/dist/index.css";
+  @import "@svind/css/src/index.scss";
 
   html,
   body {
@@ -67,41 +64,38 @@
     padding-right: 1rem !important;
     height: 56px;
 
-    background-color: get-color(color('light'));
+    background-color: get-color(color("light"));
 
     .dark & {
-      background-color: get-color(color('dark'));
+      background-color: get-color(color("dark"));
     }
 
     & h1 {
-        font-size: 1.5rem;
-        margin-left: 0.5rem;
+      font-size: 1.5rem;
+      margin-left: 0.5rem;
     }
   }
 
   .sidebar {
-      
     margin-top: 56px;
     position: fixed;
 
     &.close {
-        display: none;
-        height: 0px;
+      display: none;
+      height: 0px;
 
-        // @include breakpoint('sm') {
-          @media (min-width: 600px) {
-            display: flex;
-          }
-        // }
+      @include breakpoint("sm") {
+        display: flex;
+      }
     }
     &.open {
-        width: 100%;
-        height: 100%;
-        z-index: 4;
-        background-color: #{color('light')};
-        .dark & {
-            background-color: #{color('dark')};
-        }
+      width: 100%;
+      height: 100%;
+      z-index: 4;
+      background-color: #{color("light")};
+      .dark & {
+        background-color: #{color("dark")};
+      }
     }
   }
 
