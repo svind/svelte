@@ -1,19 +1,20 @@
 <script lang="ts">
-import { Size } from "$lib/types";
-import clsx from "clsx";
+  import clsx from "clsx";
+  import { Size } from "../../types/size";
 
+  export let src = undefined;
 
-    export let src = undefined;
+  export let text: string = undefined;
 
-    export let initial = undefined
+  export let size: Size = undefined;
 
-    export let size: Size = undefined;
-
-
-    $: classes = clsx('avatar', {
-        [`avatar-${size}`]: size
-    }
+  $: classes = clsx("avatar", {
+    [`avatar-${size}`]: size,
+  });
 </script>
+
 <span class={classes} style="background-image: url({src})">
-    {initial}
+  {#if text && !src}
+    {text}
+  {/if}
 </span>
