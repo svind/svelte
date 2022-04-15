@@ -24,8 +24,12 @@ $breakpoints: (
   }
 }
 
-.col {
+.col, .col-auto {
   width: auto;
+}
+.col-expand {
+  width: auto;
+  flex: 1;
 }
 
 [class*="col-"]:not(.card) {
@@ -46,6 +50,13 @@ $breakpoints: (
 // sm:col-3 md:col-11 ....
 @each $key, $value in ("sm", "md", "lg", "xl") {
   @include breakpoint($key) {
+    .#{$key}\:col-expand {
+      width: auto;
+      flex: 1;
+    }
+    .#{$key}\:col-auto {
+      width: auto;
+    }
     @for $var from 1 through 12 {
       .#{$key}\:col-#{$var} {
         width: calc($var * 100% / 12);

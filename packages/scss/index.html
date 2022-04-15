@@ -8,245 +8,266 @@
     <title>Test scss components</title>
   </head>
   <body class="modal-open">
-    <div class="p-2">
-      <div class="mt-4">
-        <h2>Button</h2>
-        <button class="btn">Default</button>
-        <button class="btn btn-primary">Primary</button>
-        <button class="btn btn-secondary">secondary</button>
-        <button class="btn btn-success">success</button>
-        <button class="btn btn-info">info</button>
-        <button class="btn btn-warning">warning</button>
-        <button class="btn btn-error">error</button>
-      </div>
-      <div class="mt-4">
-        <h2>Outline Button</h2>
-        <button class="btn btn-outline">Default</button>
-        <button class="btn btn-outline-primary">Primary</button>
-        <button class="btn btn-outline-secondary">secondary</button>
-        <button class="btn btn-outline-success">success</button>
-        <button class="btn btn-outline-info">info</button>
-        <button class="btn btn-outline-warning">warning</button>
-        <button class="btn btn-outline-error">error</button>
-      </div>
-
-      <div class="mt-4">
-        <h2>disabled Button</h2>
-        <button disabled class="btn">Default</button>
-        <button disabled class="btn btn-primary">Primary</button>
-        <button disabled class="btn btn-secondary">secondary</button>
-        <button disabled class="btn btn-success">success</button>
-        <button disabled class="btn btn-info">info</button>
-        <button disabled class="btn btn-warning">warning</button>
-        <button disabled class="btn btn-error">error</button>
-      </div>
-
-      <div class="mt-4">
-        <h2>disabled Button (class)</h2>
-        <button class="btn btn disabled">Default</button>
-        <button class="btn btn-primary disabled">Primary</button>
-        <button class="btn btn-secondary disabled">secondary</button>
-        <button class="btn btn-success disabled">success</button>
-        <button class="btn btn-info disabled">info</button>
-        <button class="btn btn-warning disabled">warning</button>
-        <button class="btn btn-error disabled">error</button>
-      </div>
-
-      <div class="mt-4">
-        <h2>disabled Outline Button</h2>
-        <button class="btn btn-outline disabled">Default</button>
-        <button class="btn btn-outline-primary disabled">Primary</button>
-        <button class="btn btn-outline-secondary disabled">secondary</button>
-        <button class="btn btn-outline-success disabled">success</button>
-        <button class="btn btn-outline-info disabled">info</button>
-        <button class="btn btn-outline-warning disabled">warning</button>
-        <button class="btn btn-outline-error disabled">error</button>
-      </div>
-
-      <div>
-        <h2>Block & wide</h2>
-        <button class="btn btn-block">Block</button>
-
+    <div class="page">
+      <div class="page-header">
         <div class="row">
-          <div class="col-6">
-            <button class="btn btn-block btn-primary">Primary Block</button>
+          <div class="col-expand">
+            <h2 class="page-title">Test Components</h2>
+            <h4 class="page-subtitle">scss components</h4>
+          </div>
+          <div class="col-auto">
+            <button id="themeBtn" class="btn btn-primary">Toggle Theme</button>
           </div>
         </div>
-        <button class="btn btn-wide">wide</button>
-        <button class="btn btn-success btn-wide">wide</button>
-        <button class="btn btn-info btn-wide">wide</button>
-        <button class="btn btn-warning btn-wide">wide</button>
-        <button class="btn btn-error btn-wide">wide</button>
       </div>
+      <div class="page-body">
+        <div class="mt-4">
+          <h2>Button</h2>
+          <button class="btn">Default</button>
+          <button class="btn btn-primary">Primary</button>
+          <button class="btn btn-secondary">secondary</button>
+          <button class="btn btn-success">success</button>
+          <button class="btn btn-info">info</button>
+          <button class="btn btn-warning">warning</button>
+          <button class="btn btn-error">error</button>
+        </div>
+        <div class="mt-4">
+          <h2>Outline Button</h2>
+          <button class="btn btn-outline">Default</button>
+          <button class="btn btn-outline-primary">Primary</button>
+          <button class="btn btn-outline-secondary">secondary</button>
+          <button class="btn btn-outline-success">success</button>
+          <button class="btn btn-outline-info">info</button>
+          <button class="btn btn-outline-warning">warning</button>
+          <button class="btn btn-outline-error">error</button>
+        </div>
 
-      <div>
-        <h2>Square & circle</h2>
-        <div class="btn-list">
-          <button class="btn btn-square">Square</button>
-          <button class="btn btn-square btn-block btn-primary">Primary</button>
+        <div class="mt-4">
+          <h2>disabled Button</h2>
+          <button disabled class="btn">Default</button>
+          <button disabled class="btn btn-primary">Primary</button>
+          <button disabled class="btn btn-secondary">secondary</button>
+          <button disabled class="btn btn-success">success</button>
+          <button disabled class="btn btn-info">info</button>
+          <button disabled class="btn btn-warning">warning</button>
+          <button disabled class="btn btn-error">error</button>
+        </div>
+
+        <div class="mt-4">
+          <h2>disabled Button (class)</h2>
+          <button class="btn btn disabled">Default</button>
+          <button class="btn btn-primary disabled">Primary</button>
+          <button class="btn btn-secondary disabled">secondary</button>
+          <button class="btn btn-success disabled">success</button>
+          <button class="btn btn-info disabled">info</button>
+          <button class="btn btn-warning disabled">warning</button>
+          <button class="btn btn-error disabled">error</button>
+        </div>
+
+        <div class="mt-4">
+          <h2>disabled Outline Button</h2>
+          <button class="btn btn-outline disabled">Default</button>
+          <button class="btn btn-outline-primary disabled">Primary</button>
+          <button class="btn btn-outline-secondary disabled">secondary</button>
+          <button class="btn btn-outline-success disabled">success</button>
+          <button class="btn btn-outline-info disabled">info</button>
+          <button class="btn btn-outline-warning disabled">warning</button>
+          <button class="btn btn-outline-error disabled">error</button>
+        </div>
+
+        <div>
+          <h2>Block & wide</h2>
+          <button class="btn btn-block">Block</button>
+
+          <div class="row">
+            <div class="col-6">
+              <button class="btn btn-block btn-primary">Primary Block</button>
+            </div>
+          </div>
           <button class="btn btn-wide">wide</button>
-          <button class="btn btn-circle btn-success btn-wide">circle</button>
-          <button class="btn btn-circle btn-info btn-wide">circle</button>
-          <button class="btn btn-circle btn-warning btn-wide">circle</button>
-          <button class="btn btn-circle btn-error btn-wide">circle</button>
+          <button class="btn btn-success btn-wide">wide</button>
+          <button class="btn btn-info btn-wide">wide</button>
+          <button class="btn btn-warning btn-wide">wide</button>
+          <button class="btn btn-error btn-wide">wide</button>
         </div>
-      </div>
-    </div>
 
-    <div class="p-2 dark">
-      <div class="mt-4">
-        <h2>Button</h2>
-        <button class="btn">Default</button>
-        <button class="btn btn-primary">Primary</button>
-        <button class="btn btn-secondary">secondary</button>
-        <button class="btn btn-success">success</button>
-        <button class="btn btn-info">info</button>
-        <button class="btn btn-warning">warning</button>
-        <button class="btn btn-error">error</button>
-      </div>
-      <div class="mt-4">
-        <h2>Outline Button</h2>
-        <button class="btn btn-outline">Default</button>
-        <button class="btn btn-outline-primary">Primary</button>
-        <button class="btn btn-outline-secondary">secondary</button>
-        <button class="btn btn-outline-success">success</button>
-        <button class="btn btn-outline-info">info</button>
-        <button class="btn btn-outline-warning">warning</button>
-        <button class="btn btn-outline-error">error</button>
-      </div>
-
-      <div class="mt-4">
-        <h2>disabled Button</h2>
-        <button disabled class="btn">Default</button>
-        <button disabled class="btn btn-primary">Primary</button>
-        <button disabled class="btn btn-secondary">secondary</button>
-        <button disabled class="btn btn-success">success</button>
-        <button disabled class="btn btn-info">info</button>
-        <button disabled class="btn btn-warning">warning</button>
-        <button disabled class="btn btn-error">error</button>
-      </div>
-
-      <div class="mt-4">
-        <h2>disabled Button (class)</h2>
-        <button class="btn btn disabled">Default</button>
-        <button class="btn btn-primary disabled">Primary</button>
-        <button class="btn btn-secondary disabled">secondary</button>
-        <button class="btn btn-success disabled">success</button>
-        <button class="btn btn-info disabled">info</button>
-        <button class="btn btn-warning disabled">warning</button>
-        <button class="btn btn-error disabled">error</button>
-      </div>
-
-      <div class="mt-4">
-        <h2>disabled Outline Button</h2>
-        <button class="btn btn-outline disabled">Default</button>
-        <button class="btn btn-outline-primary disabled">Primary</button>
-        <button class="btn btn-outline-secondary disabled">secondary</button>
-        <button class="btn btn-outline-success disabled">success</button>
-        <button class="btn btn-outline-info disabled">info</button>
-        <button class="btn btn-outline-warning disabled">warning</button>
-        <button class="btn btn-outline-error disabled">error</button>
-      </div>
-    </div>
-
-    <button class="btn btn-success" id="open-modal">open</button>
-    <div id="modal" class="modal dark open">
-      <div class="card bg-light dark:bg-dark col-11">
-        <div class="card-body">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-          officia explicabo asperiores rem, tempore quia ex distinctio error
-          amet! Delectus labore quam rem similique distinctio unde consequuntur,
-          esse asperiores iusto.
+        <div>
+          <h2>Square & circle</h2>
+          <div class="btn-list">
+            <button class="btn btn-square">Square</button>
+            <button class="btn btn-square btn-block btn-primary">
+              Primary
+            </button>
+            <button class="btn btn-wide">wide</button>
+            <button class="btn btn-circle btn-success btn-wide">circle</button>
+            <button class="btn btn-circle btn-info btn-wide">circle</button>
+            <button class="btn btn-circle btn-warning btn-wide">circle</button>
+            <button class="btn btn-circle btn-error btn-wide">circle</button>
+          </div>
         </div>
-        <div class="card-footer">
-          <button class="btn btn-error" id="close-modal">close</button>
+
+        <div class="mt-4">
+          <h2>Button</h2>
+          <button class="btn">Default</button>
+          <button class="btn btn-primary">Primary</button>
+          <button class="btn btn-secondary">secondary</button>
+          <button class="btn btn-success">success</button>
+          <button class="btn btn-info">info</button>
+          <button class="btn btn-warning">warning</button>
+          <button class="btn btn-error">error</button>
         </div>
-      </div>
-      <!-- <div class="modal-content col-8 sm:col-10">
+        <div class="mt-4">
+          <h2>Outline Button</h2>
+          <button class="btn btn-outline">Default</button>
+          <button class="btn btn-outline-primary">Primary</button>
+          <button class="btn btn-outline-secondary">secondary</button>
+          <button class="btn btn-outline-success">success</button>
+          <button class="btn btn-outline-info">info</button>
+          <button class="btn btn-outline-warning">warning</button>
+          <button class="btn btn-outline-error">error</button>
+        </div>
+
+        <div class="mt-4">
+          <h2>disabled Button</h2>
+          <button disabled class="btn">Default</button>
+          <button disabled class="btn btn-primary">Primary</button>
+          <button disabled class="btn btn-secondary">secondary</button>
+          <button disabled class="btn btn-success">success</button>
+          <button disabled class="btn btn-info">info</button>
+          <button disabled class="btn btn-warning">warning</button>
+          <button disabled class="btn btn-error">error</button>
+        </div>
+
+        <div class="mt-4">
+          <h2>disabled Button (class)</h2>
+          <button class="btn btn disabled">Default</button>
+          <button class="btn btn-primary disabled">Primary</button>
+          <button class="btn btn-secondary disabled">secondary</button>
+          <button class="btn btn-success disabled">success</button>
+          <button class="btn btn-info disabled">info</button>
+          <button class="btn btn-warning disabled">warning</button>
+          <button class="btn btn-error disabled">error</button>
+        </div>
+
+        <div class="mt-4">
+          <h2>disabled Outline Button</h2>
+          <button class="btn btn-outline disabled">Default</button>
+          <button class="btn btn-outline-primary disabled">Primary</button>
+          <button class="btn btn-outline-secondary disabled">secondary</button>
+          <button class="btn btn-outline-success disabled">success</button>
+          <button class="btn btn-outline-info disabled">info</button>
+          <button class="btn btn-outline-warning disabled">warning</button>
+          <button class="btn btn-outline-error disabled">error</button>
+        </div>
+
+        <button class="btn btn-success" id="open-modal">open</button>
+        <div id="modal" class="modal dark open">
+          <div class="card bg-light dark:bg-dark col-11">
+            <div class="card-body">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+              officia explicabo asperiores rem, tempore quia ex distinctio error
+              amet! Delectus labore quam rem similique distinctio unde
+              consequuntur, esse asperiores iusto.
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-error" id="close-modal">close</button>
+            </div>
+          </div>
+          <!-- <div class="modal-content col-8 sm:col-10">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam odit qui eveniet quod obcaecati magnam asperiores, aliquam ipsam harum. Accusantium assumenda deserunt quis voluptatum repellendus, dolore mollitia minima consequuntur doloremque.
       </div> -->
+        </div>
+
+        <span
+          class="avatar avatar-lg bg-light"
+          style="
+            background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg);
+          "
+        ></span>
+        <span
+          class="avatar avatar-lg bg-light"
+          style="
+            background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg);
+          "
+        ></span>
+        <span
+          class="avatar avatar-lg bg-light"
+          style="
+            background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg);
+          "
+        ></span>
+        <span
+          class="avatar avatar-lg bg-light"
+          style="
+            background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg);
+          "
+        ></span>
+
+        <span class="avatar">HA</span>
+        <span class="avatar bg-red-lt">HA</span>
+        <span class="avatar bg-light-lt">HA</span>
+        <span class="avatar bg-blue-lt">HA</span>
+        <span class="avatar bg-dark-lt">HA</span>
+        <span class="avatar bg-amber-lt">HA</span>
+
+        <span class="avatar avatar-xs bg-amber-lt">HA</span>
+        <span class="avatar avatar-sm bg-amber-lt">HA</span>
+        <span class="avatar avatar-md bg-amber-lt">HA</span>
+        <span class="avatar avatar-lg bg-amber-lt">HA</span>
+        <span class="avatar avatar-xl bg-amber-lt">HA</span>
+
+        <h2>Breadcrumbs</h2>
+
+        <nav class="breadcrumb">
+          <ol>
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active">
+              <a href="/components">Components</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="/components/button">Button</a>
+            </li>
+          </ol>
+        </nav>
+
+        <nav class="breadcrumb breadcrumb-arrow">
+          <ol>
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active">
+              <a href="/components">Components</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="/components/button">Button</a>
+            </li>
+          </ol>
+        </nav>
+        <nav class="breadcrumb breadcrumb-dash">
+          <ol>
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active">
+              <a href="/components">Components</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="/components/button">Button</a>
+            </li>
+          </ol>
+        </nav>
+
+        <nav class="breadcrumb breadcrumb-dot">
+          <ol>
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active">
+              <a href="/components">Components</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a href="/components/button">Button</a>
+            </li>
+          </ol>
+        </nav>
+
+        <h2>End</h2>
+      </div>
     </div>
-
-    <span
-      class="avatar avatar-lg bg-light"
-      style="
-        background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg);
-      "
-    ></span>
-    <span
-      class="avatar avatar-lg bg-light"
-      style="
-        background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg);
-      "
-    ></span>
-    <span
-      class="avatar avatar-lg bg-light"
-      style="
-        background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg);
-      "
-    ></span>
-    <span
-      class="avatar avatar-lg bg-light"
-      style="
-        background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg);
-      "
-    ></span>
-
-    <span class="avatar">HA</span>
-    <span class="avatar bg-red-lt">HA</span>
-    <span class="avatar bg-light-lt">HA</span>
-    <span class="avatar bg-blue-lt">HA</span>
-    <span class="avatar bg-dark-lt">HA</span>
-    <span class="avatar bg-amber-lt">HA</span>
-
-    <span class="avatar avatar-xs bg-amber-lt">HA</span>
-    <span class="avatar avatar-sm bg-amber-lt">HA</span>
-    <span class="avatar avatar-md bg-amber-lt">HA</span>
-    <span class="avatar avatar-lg bg-amber-lt">HA</span>
-    <span class="avatar avatar-xl bg-amber-lt">HA</span>
-
-    <h2>Breadcrumbs</h2>
-
-    <nav class="breadcrumb">
-      <ol>
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item active">
-          <a href="/components">Components</a>
-        </li>
-        <li class="breadcrumb-item"><a href="/components/button">Button</a></li>
-      </ol>
-    </nav>
-
-    <nav class="breadcrumb breadcrumb-arrow">
-      <ol>
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item active">
-          <a href="/components">Components</a>
-        </li>
-        <li class="breadcrumb-item"><a href="/components/button">Button</a></li>
-      </ol>
-    </nav>
-    <nav class="breadcrumb breadcrumb-dash">
-      <ol>
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item active">
-          <a href="/components">Components</a>
-        </li>
-        <li class="breadcrumb-item"><a href="/components/button">Button</a></li>
-      </ol>
-    </nav>
-
-    <nav class="breadcrumb breadcrumb-dot">
-      <ol>
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item active">
-          <a href="/components">Components</a>
-        </li>
-        <li class="breadcrumb-item"><a href="/components/button">Button</a></li>
-      </ol>
-    </nav>
-
-    <h2>End</h2>
   </body>
 
   <script>
@@ -262,6 +283,16 @@
     closeBtn.addEventListener("click", () => {
       closeModal();
     });
+
+    const themeBtn = document.getElementById('themeBtn')
+    themeBtn.addEventListener('click', toggleTheme)
+    function toggleTheme() {
+      if(body.classList.contains('dark')) {
+        body.classList.remove('dark')
+      } else {
+        body.classList.add('dark')
+      }
+    }
 
     function openModal() {
       console.log("open");

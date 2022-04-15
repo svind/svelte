@@ -1,0 +1,28 @@
+.page {
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  & .page-body {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  & .page-header {
+    min-height: 2.5rem;
+    margin-top: 1rem;
+
+    .page-title {
+      margin: 0;
+    }
+
+    .page-subtitle {
+      opacity: 0.6;
+      margin: 0.25rem 0 0 0;
+    }
+  }
+}
