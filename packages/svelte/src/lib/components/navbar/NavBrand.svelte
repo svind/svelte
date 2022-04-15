@@ -1,3 +1,3 @@
-<div class="nav-brand">
+<div class="navbar-brand">
     <slot/>
 </div>

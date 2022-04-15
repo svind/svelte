@@ -1,58 +1,77 @@
 <script>
+  import "@svind/css/src/index.scss";
+  import {
+    Card,
+    Page,
+    PageBody,
+    PageHeader,
+    PageTitle,
+    PageSubtitle,
+    Button,
+    Col,
+    Row,
+    CardBody,
+    Nav,
+    NavItem,
+    NavBrand,
+    Sidebar,
+    PageWrapper,
+Header,
+NavbarToggler,
+  } from "$lib/components";
 
-import '@svind/css/src/index.scss'
-import { Card, Page, PageBody, PageHeader, PageTitle, PageSubtitle, Navbar, Button, Col, Row, CardBody, Nav, NavItem, NavBrand } from "$lib/components";
-
-let navOpen = false
-let active = 1;
+  let navOpen = false;
+  let active = 1;
+  let sidebarId = 'sidebar-1';
 </script>
-<Navbar vertical>
-  <div style="width: 100%" class="row items-center">
-    <div class="col-expand">
-      <NavBrand>Svind</NavBrand>
-    </div>
-    <div class="col-auto">
 
-      <Button on:click={() => navOpen= !navOpen}>Toggle</Button>
-    </div>
-    <div class="col-12">
-
-      <Nav open={navOpen}>
-        <NavItem on:click={() => active = 1} active={active === 1} href="/components/button">Item 1</NavItem>
-        <NavItem on:click={() => active = 2} active={active === 2} href="/components/button">Item 2</NavItem>
-        <NavItem on:click={() => active = 3} active={active === 3} href="/components/button">Item 3</NavItem>
-      </Nav>
-    </div>
-</div>
-</Navbar>
 <Page>
-  <PageHeader>
-    <Row>
-      <Col col="expand">
-        <PageTitle>svind</PageTitle>
-        <PageSubtitle>Subtitle</PageSubtitle>
-      </Col>
-      
-      <Col col="auto">
-        <Button>Button</Button>
-      </Col>
-    </Row>
-  </PageHeader>
-  <PageBody>
-    <Card>
-      <CardBody>
-        <slot/>
-      </CardBody>
-    </Card>
-  </PageBody>
+  <Sidebar id={sidebarId} expand="lg">
+    <NavBrand>Svind</NavBrand>
+    <Nav open={navOpen}>
+      <NavItem
+        on:click={() => (active = 1)}
+        active={active === 1}
+        href="/components/button">Button</NavItem
+      >
+      <NavItem
+        on:click={() => (active = 2)}
+        active={active === 2}
+        href="/components/card">Card</NavItem
+      >
+      <NavItem
+        on:click={() => (active = 3)}
+        active={active === 3}
+        href="/components/badge">Badge</NavItem
+      >
+    </Nav>
+  </Sidebar>
+  <PageWrapper>
+    <Header>
+      <NavbarToggler target={sidebarId}/>
+      Header
+    </Header>
+    <PageHeader>
+      <Row>
+        <Col col="expand">
+          <PageTitle>svind</PageTitle>
+          <PageSubtitle>Subtitle</PageSubtitle>
+        </Col>
+
+        <Col col="auto">
+          <Button>Button</Button>
+        </Col>
+      </Row>
+    </PageHeader>
+    <PageBody>
+      <Card>
+        <CardBody>
+          <slot />
+        </CardBody>
+      </Card>
+    </PageBody>
+  </PageWrapper>
 </Page>
-
-<style lang="scss" global>
-  .col-expand {
-    flex: 1;
-  }
-
-</style>
 
 <!-- <script>
   import { Button, Card, CardBody, Checkbox, Col, Icon, Row } from "$lib";
@@ -185,3 +204,8 @@ let active = 1;
     }
   }
 </style> -->
+<style lang="scss" global>
+  .col-expand {
+    flex: 1;
+  }
+</style>
