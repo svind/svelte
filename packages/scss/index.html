@@ -153,24 +153,44 @@
     <div id="modal" class="modal dark open">
       <div class="card bg-light dark:bg-dark col-11">
         <div class="card-body">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique officia explicabo asperiores rem, tempore quia ex distinctio error amet! Delectus labore quam rem similique distinctio unde consequuntur, esse asperiores iusto.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+          officia explicabo asperiores rem, tempore quia ex distinctio error
+          amet! Delectus labore quam rem similique distinctio unde consequuntur,
+          esse asperiores iusto.
         </div>
         <div class="card-footer">
-
           <button class="btn btn-error" id="close-modal">close</button>
         </div>
-
-
       </div>
       <!-- <div class="modal-content col-8 sm:col-10">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam odit qui eveniet quod obcaecati magnam asperiores, aliquam ipsam harum. Accusantium assumenda deserunt quis voluptatum repellendus, dolore mollitia minima consequuntur doloremque.
       </div> -->
     </div>
 
-    <span class="avatar avatar-lg bg-light" style="background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg)"></span>
-    <span class="avatar avatar-lg bg-light" style="background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg)"></span>
-    <span class="avatar avatar-lg bg-light" style="background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg)"></span>
-    <span class="avatar avatar-lg bg-light" style="background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg)"></span>
+    <span
+      class="avatar avatar-lg bg-light"
+      style="
+        background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg);
+      "
+    ></span>
+    <span
+      class="avatar avatar-lg bg-light"
+      style="
+        background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg);
+      "
+    ></span>
+    <span
+      class="avatar avatar-lg bg-light"
+      style="
+        background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg);
+      "
+    ></span>
+    <span
+      class="avatar avatar-lg bg-light"
+      style="
+        background-image: url(https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg);
+      "
+    ></span>
 
     <span class="avatar">HA</span>
     <span class="avatar bg-red-lt">HA</span>
@@ -184,37 +204,78 @@
     <span class="avatar avatar-md bg-amber-lt">HA</span>
     <span class="avatar avatar-lg bg-amber-lt">HA</span>
     <span class="avatar avatar-xl bg-amber-lt">HA</span>
+
+    <h2>Breadcrumbs</h2>
+
+    <nav class="breadcrumb">
+      <ol>
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">
+          <a href="/components">Components</a>
+        </li>
+        <li class="breadcrumb-item"><a href="/components/button">Button</a></li>
+      </ol>
+    </nav>
+
+    <nav class="breadcrumb breadcrumb-arrow">
+      <ol>
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">
+          <a href="/components">Components</a>
+        </li>
+        <li class="breadcrumb-item"><a href="/components/button">Button</a></li>
+      </ol>
+    </nav>
+    <nav class="breadcrumb breadcrumb-dash">
+      <ol>
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">
+          <a href="/components">Components</a>
+        </li>
+        <li class="breadcrumb-item"><a href="/components/button">Button</a></li>
+      </ol>
+    </nav>
+
+    <nav class="breadcrumb breadcrumb-dot">
+      <ol>
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">
+          <a href="/components">Components</a>
+        </li>
+        <li class="breadcrumb-item"><a href="/components/button">Button</a></li>
+      </ol>
+    </nav>
+
+    <h2>End</h2>
   </body>
 
   <script>
-    const modal = document.getElementById('modal');
-    const body = document.getElementsByTagName('body')[0];
-    const openBtn = document.getElementById('open-modal');
-    const closeBtn = document.getElementById('close-modal');
+    const modal = document.getElementById("modal");
+    const body = document.getElementsByTagName("body")[0];
+    const openBtn = document.getElementById("open-modal");
+    const closeBtn = document.getElementById("close-modal");
 
-    openBtn.addEventListener('click', () => {
-      openModal()
-    })
+    openBtn.addEventListener("click", () => {
+      openModal();
+    });
 
-    closeBtn.addEventListener('click', () => {
-      closeModal()
-    })
-    
+    closeBtn.addEventListener("click", () => {
+      closeModal();
+    });
+
     function openModal() {
-      console.log('open')
-      modal.classList.add('open');
-      body.classList.add('modal-open')
+      console.log("open");
+      modal.classList.add("open");
+      body.classList.add("modal-open");
     }
 
     function closeModal() {
-      console.log('close')
-      modal.classList.remove('open');
-      body.classList.remove('modal-open')
+      console.log("close");
+      modal.classList.remove("open");
+      body.classList.remove("modal-open");
     }
 
-    console.log(modal)
-    console.log(body)
-
+    console.log(modal);
+    console.log(body);
   </script>
-
 </html>
