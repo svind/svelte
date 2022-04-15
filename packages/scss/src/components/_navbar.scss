@@ -1,6 +1,6 @@
-.navbar {
+$sidebar-expand-width: 200px;
+.navbar-header {
   height: 56px;
-  width: 100%;
   padding-left: 1rem;
   padding-right: 1rem;
   top: 0;
@@ -10,61 +10,125 @@
   justify-content: space-between;
   box-shadow: 0 0px 4px #00000066;
 
-  .nav-brand {
-    font-weight: 700;
-    font-size: 1.5rem;
-    padding: 1rem;
-  }
-
-  &.navbar-vertical {
-    padding: 0;
-    height: min-content;
-    flex-direction: column;
+  .page-wrapper & {
+    margin-left: -1rem;
+    margin-right: -1rem;
   }
 
   &.navbar-fixed {
     position: fixed;
   }
 
-  & .nav {
+  & .navbar-toggler {
+    border: none;
     display: flex;
     align-items: center;
-    height: 100%;
+    justify-content: center;
+    opacity: 0.8;
+    height: 56px;
 
-    .navbar-vertical & {
-      display: none;
-      flex-direction: column;
-      align-items: stretch;
-      width: 100%;
-      padding: -1rem;
-      height: min-content;
-
-      &.open {
-        display: flex;
-      }
+    &::before {
+      content: "x";
+      font-size: 2rem;
+      line-height: 1rem;
+      border: none;
+      outline: none;
+      padding: 1rem;
     }
 
-    .nav-item {
-      height: 100%;
-      padding: 1rem;
+    &.collapsed::before {
+      content: "=";
+    }
+  }
+}
 
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.navbar-sidebar {
+  width: 0;
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: auto;
+  top: 56px;
+  bottom: 0;
+  left: 0;
+  transition: width 0.25s ease;
+  padding: 0;
+  justify-content: flex-start;
+  flex-direction: column;
+  box-shadow: 0 4px 4px #00000066;
+  z-index: 2;
+  &.open {
+    top: 56px;
+    width: 66.66%;
+  }
+}
+
+.navbar-expand {
+  top: 0;
+  width: $sidebar-expand-width;
+  //   max-height: 100vh;
+
+  & ~ .page-wrapper {
+    margin-left: $sidebar-expand-width;
+  }
+  & ~ .navbar-header {
+    margin-left: $sidebar-expand-width;
+  }
+}
+
+@each $key, $value in $breakpoints {
+  @include breakpoint($key) {
+    .navbar-sidebar.#{$key}\:navbar-expand {
+      top: 0;
+
+      width: $sidebar-expand-width;
+    }
+    .navbar-sidebar.#{$key}\:navbar-expand ~ .page-wrapper {
+      margin-left: $sidebar-expand-width;
+    }
+    .navbar-sidebar.#{$key}\:navbar-expand ~ .navbar-header {
+        margin-left: $sidebar-expand-width;
+      }
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  overflow: auto;
+  transition: all 0.25s ease-in;
+
+  .navbar-sidebar & {
+    // max-height: 0;
+    // opacity: 0;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .nav-item {
+    // height: 100%;
+    padding: 1rem;
+
+    display: flex;
+    align-items: center;
+
+    & a {
       display: flex;
       align-items: center;
-
       height: 100%;
+    }
 
-      & a {
-        display: flex;
-        align-items: center;
-        height: 100%;
-      }
-
-      &:hover {
-        background-color: #8881;
-      }
-      &.active {
-        background-color: #8883;
-      }
+    &:hover {
+      background-color: #8881;
+    }
+    &.active {
+      background-color: #8883;
     }
   }
 }

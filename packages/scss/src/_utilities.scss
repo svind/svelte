@@ -105,22 +105,22 @@ $lt-opacity: 0.2;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
-@each $display in (flex, inline, inline-block, inline-flex, grid) {
+@each $display in (flex, inline, block, inline-block, inline-flex, grid) {
   .#{$display} {
-    display: $display;
+    display: $display !important;
   }
 }
 
 @each $name in ("sm", "md", "lg", "xl") {
   @include breakpoint($name) {
     .#{$name}\:hidden {
-      display: none;
+      display: none !important;
     }
-    @each $display in (flex, none, inline, inline-block, inline-flex, grid) {
+    @each $display in (flex, inline, block, inline-block, inline-flex, grid) {
       .#{$name}\:#{$display} {
-        display: $display;
+        display: $display !important;
       }
     }
   }

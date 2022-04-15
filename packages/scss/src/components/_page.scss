@@ -1,28 +1,40 @@
 .page {
-  margin-top: 56px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-height: 100vh;
-  padding-left: 1rem;
-  padding-right: 1rem;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 
-  & .page-body {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
+  .page-wrapper {
 
-  & .page-header {
-    min-height: 2.5rem;
-    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-height: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow: auto;
+    transition: margin-left 0.25s ease;
 
-    .page-title {
-      margin: 0;
+
+    & .page-body {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
     }
 
-    .page-subtitle {
-      opacity: 0.6;
-      margin: 0.25rem 0 0 0;
+    & .page-header {
+      min-height: 2.5rem;
+      margin-top: 1rem;
+
+      .page-title {
+        margin: 0;
+      }
+
+      .page-subtitle {
+        opacity: 0.6;
+        margin: 0.25rem 0 0 0;
+      }
     }
   }
 }
