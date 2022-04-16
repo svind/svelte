@@ -1,6 +1,6 @@
 <script>
-import { Button, Card, Row } from "svind";
-import ButtonList from "svind/components/button/ButtonList.svelte";
+import { Button, Card, Row } from "$lib";
+import ButtonList from  "svind/components/button/ButtonList.svelte";
 import CardBody from "svind/components/card/CardBody.svelte";
 import CardFooter from "svind/components/card/CardFooter.svelte";
 import FormInput from "svind/components/form/FormInput.svelte";

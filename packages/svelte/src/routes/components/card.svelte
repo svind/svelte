@@ -1,10 +1,9 @@
 <script>
 
-import { Button, Card, CardBody, CardFooter, CardHeader, CardTitle, Row } from "svind";
+import { Button, Card, CardBody, CardFooter, CardHeader, CardTitle, Row } from "$lib";
 
 </script>
-<Card>
-    <CardBody>
+<Card$lib <CardBody>
         This is card
     </CardBody>
 </Card>

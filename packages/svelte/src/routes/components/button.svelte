@@ -1,5 +1,5 @@
 <script>
-  import { Button, Icon } from "svind";
+  import { Button, Icon } from "$lib";
   import ButtonList from "svind/components/button/ButtonList.svelte";
 </script>
 

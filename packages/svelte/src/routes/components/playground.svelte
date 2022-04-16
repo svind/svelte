@@ -1,6 +1,5 @@
 <script>
-    import { Button, Badge, Icon } from "svind";
-    import { Input } from "$lib/components/form";
+    import { Button, Badge, Icon } from "$lib";
   
     let checked = false;
   </script>

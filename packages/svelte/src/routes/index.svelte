@@ -1,7 +1,5 @@
-
 <h3>Component Library for svelte</h3>
 built with scss
-
 
 <h3>Install</h3>
 <code>
@@ -12,26 +10,15 @@ built with scss
 
 <h3>Usage</h3>
 <pre class="z-3">
-{`<script>
-  import { Button } from 'svind'
-
-</script>
+{`<script ✂prettier:content✂="CiAgaW1wb3J0IHsgQnV0dG9uIH0gZnJvbSAnc3ZpbmQnCgo=">{}</script>
 
 <Button>Hello World!</Button>
 
 `}</pre>
 
-<br>
+<br />
 <pre class="z-3">
-{`<script>
-  import { FormInput, Icon, Button } from 'svind'
-
-  let name = 'world';
-
-  function submit() {
-    console.log(name)
-  }
-</script>
+{`<script ✂prettier:content✂="CiAgaW1wb3J0IHsgRm9ybUlucHV0LCBJY29uLCBCdXR0b24gfSBmcm9tICckbGliJwoKICBsZXQgbmFtZSA9ICd3b3JsZCc7CgogIGZ1bmN0aW9uIHN1Ym1pdCgpIHsKICAgIGNvbnNvbGUubG9nKG5hbWUpCiAgfQo=">{}</script>
 
 <FormInput bind:value={name} label="name"/>
 

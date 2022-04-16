@@ -11,6 +11,6 @@ import clsx from "clsx";
         [`z-${z}`]: !!z
     }, className)
 </script>
-<div class={classes}>
+<div class={classes} on:click|stopPropagation>
     <slot/>
 </div>
