@@ -32,6 +32,10 @@ body {
 .row > .btn {
   align-self: flex-end;
 }
+.row [class*=col-] {
+  padding-left: 4px;
+  padding-right: 4px;
+}
 
 .col, .col-auto {
   width: auto;
@@ -40,11 +44,6 @@ body {
 .col-expand {
   width: auto;
   flex: 1;
-}
-
-[class*=col-]:not(.card) {
-  padding-left: 4px;
-  padding-right: 4px;
 }
 
 .col-0 {
@@ -1954,8 +1953,10 @@ body {
   --breadcrumb-divider: ">";
 }
 .breadcrumb .breadcrumb-item {
-  padding-left: 0.5rem;
   display: inline;
+}
+.breadcrumb .breadcrumb-item:not(:first-of-type) {
+  padding-left: 0.5rem;
 }
 .breadcrumb .breadcrumb-item:not(:first-of-type)::before {
   content: var(--breadcrumb-divider);
@@ -2488,7 +2489,7 @@ body.modal-open {
 }
 
 .modal {
-  z-index: 2;
+  z-index: 3;
   position: fixed;
   display: flex;
   align-items: center;
@@ -2663,8 +2664,8 @@ body.modal-open {
 .nav {
   display: flex;
   align-items: center;
-  overflow: auto;
   transition: all 0.25s ease-in;
+  overflow: visible;
 }
 .navbar-sidebar .nav {
   flex-direction: column;
@@ -2711,8 +2712,11 @@ body.modal-open {
   margin-bottom: 1rem;
 }
 .page .page-wrapper .page-header {
-  min-height: 2.5rem;
   margin-top: 1rem;
+}
+.page .page-wrapper .page-header > .breadcrumb {
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
 }
 .page .page-wrapper .page-header .page-title {
   margin: 0;

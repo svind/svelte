@@ -25,9 +25,12 @@ BreadcrumbItem,
   let navOpen = false;
   let active = 1;
   let sidebarId = 'sidebar-1';
+
+  let dark = false;
+
 </script>
 
-<Page>
+<Page {dark}>
   <Sidebar id={sidebarId} expand="lg">
     <NavBrand>Svind</NavBrand>
     <Nav open={navOpen}>
@@ -49,7 +52,7 @@ BreadcrumbItem,
     </Nav>
   </Sidebar>
   <PageWrapper>
-    <Header>
+    <Header color="grey-lt">
       <NavbarToggler target={sidebarId}/>
       Header
     </Header>
@@ -66,7 +69,7 @@ BreadcrumbItem,
         </Col>
 
         <Col col="auto">
-          <Button>Button</Button>
+          <Button on:click={() => dark = !dark}>Toggle Dark</Button>
         </Col>
       </Row>
     </PageHeader>

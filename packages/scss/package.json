@@ -1,6 +1,6 @@
 {
   "name": "@svind/css",
-  "version": "0.0.7",
+  "version": "0.0.10",
   "description": "css classes for svind",
   "main": "dist/index.css",
   "publishConfig": {

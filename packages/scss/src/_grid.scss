@@ -22,6 +22,12 @@ $breakpoints: (
   & > .btn {
     align-self: flex-end;
   }
+  
+  [class*="col-"] {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
 }
 
 .col, .col-auto {
@@ -31,11 +37,7 @@ $breakpoints: (
   width: auto;
   flex: 1;
 }
-
-[class*="col-"]:not(.card) {
-  padding-left: 4px;
-  padding-right: 4px;
-}
+  
 
 // col-1 col-2 ....
 @for $var from 0 through 12 {

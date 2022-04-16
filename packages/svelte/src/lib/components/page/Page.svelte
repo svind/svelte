@@ -1,6 +1,8 @@
 <script>
 import { onMount } from "svelte";
 
+    export let dark = false;
+
     let el
 
     onMount(() => {
@@ -10,6 +12,6 @@ import { onMount } from "svelte";
         })
     })
 </script>
-<div bind:this={el} class="page">
+<div bind:this={el} class="page" class:dark>
     <slot/>
 </div>

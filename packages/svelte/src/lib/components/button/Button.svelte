@@ -1,5 +1,3 @@
-
-
 <script lang="ts">
   import clsx from "clsx";
   import type { Size, Variant } from "../../types";
@@ -16,15 +14,20 @@
   export let size: Size = undefined;
 
   /**
+   * type of button
+   */
+  export let type: "button" | "menu" | "submit" | "reset" = undefined;
+
+  /**
    * render <a> instead of <button>
    */
   export let href: string = undefined;
 
   /**
-   * related to grid (between 1 and 12) 
+   * related to grid (between 1 and 12)
    */
   export let col: string = undefined;
-  
+
   /**
    * show only border
    */
@@ -33,7 +36,7 @@
   /**
    * disabled state of button
    */
-  export let disabled: boolean = false;
+  export let disabled: boolean = undefined;
 
   /**
    * square shape with no border radius
@@ -44,9 +47,9 @@
    * circle shape
    */
   export let circle: boolean = false;
-  
+
   /**
-   * TODO: width: 100% 
+   * TODO: width: 100%
    */
   export let block: boolean = false;
 
@@ -74,14 +77,14 @@
 </script>
 
 {#if href}
-  <a {href} {disabled} on:click class={classes}>
+  <a {type} {href} {disabled} on:click class={classes}>
     {#if icon}
       <Icon {icon} />
     {/if}
     <slot />
   </a>
 {:else}
-  <button {disabled} on:click class={classes}>
+  <button {type} {disabled} on:click class={classes}>
     {#if icon}
       <Icon {icon} />
     {/if}

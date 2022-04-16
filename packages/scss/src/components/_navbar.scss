@@ -26,6 +26,8 @@ $sidebar-expand-width: 200px;
     justify-content: center;
     opacity: 0.8;
     height: 56px;
+    color: inherit;
+    background-color: #0000;
 
     &::before {
       content: "x";
@@ -100,8 +102,8 @@ $sidebar-expand-width: 200px;
 .nav {
   display: flex;
   align-items: center;
-  overflow: auto;
   transition: all 0.25s ease-in;
+  overflow: visible;
 
   .navbar-sidebar & {
     // max-height: 0;
