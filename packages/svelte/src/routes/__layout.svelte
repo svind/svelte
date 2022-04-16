@@ -18,6 +18,8 @@
     PageWrapper,
 Header,
 NavbarToggler,
+Breadcrumb,
+BreadcrumbItem,
   } from "$lib/components";
 
   let navOpen = false;
@@ -52,6 +54,11 @@ NavbarToggler,
       Header
     </Header>
     <PageHeader>
+    <Breadcrumb>
+      <BreadcrumbItem href="/">Home</BreadcrumbItem>
+      <BreadcrumbItem href="/components">components</BreadcrumbItem>
+      <BreadcrumbItem href="/components/button">Button</BreadcrumbItem>
+    </Breadcrumb>
       <Row>
         <Col col="expand">
           <PageTitle>svind</PageTitle>

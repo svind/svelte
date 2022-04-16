@@ -17,10 +17,10 @@
   }
 
   .breadcrumb-item {
-    padding-left: 0.5rem;
     display: inline;
 
     &:not(:first-of-type) {
+      padding-left: 0.5rem;
       &::before {
         content: var(--breadcrumb-divider);
         padding-right: 0.5rem;

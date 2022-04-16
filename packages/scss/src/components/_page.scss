@@ -24,8 +24,12 @@
     }
 
     & .page-header {
-      min-height: 2.5rem;
       margin-top: 1rem;
+
+      & > .breadcrumb {
+        margin-top: -0.5rem;
+        margin-bottom: 0.5rem;
+      }
 
       .page-title {
         margin: 0;
