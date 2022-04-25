@@ -2541,6 +2541,8 @@ body.modal-open {
   justify-content: center;
   opacity: 0.8;
   height: 56px;
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0);
 }
 .navbar-header .navbar-toggler::before {
   content: "x";

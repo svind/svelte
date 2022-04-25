@@ -1,6 +1,8 @@
 $sidebar-expand-width: 200px;
 .navbar-header {
-  height: 56px;
+  --header-height: 56px;
+
+  height: var(--header-height);
   padding-left: 1rem;
   padding-right: 1rem;
   top: 0;
@@ -25,7 +27,7 @@ $sidebar-expand-width: 200px;
     align-items: center;
     justify-content: center;
     opacity: 0.8;
-    height: 56px;
+    height: var(--header-height);
     color: inherit;
     background-color: #0000;
 
@@ -51,11 +53,14 @@ $sidebar-expand-width: 200px;
 }
 
 .navbar-sidebar {
+  --header-height: 56px;
   width: 0;
+  display: flex;
+  flex-direction: column;
   position: fixed;
   overflow-x: hidden;
   overflow-y: auto;
-  top: 56px;
+  top: var(--header-height);
   bottom: 0;
   left: 0;
   transition: width 0.25s ease;
@@ -64,8 +69,9 @@ $sidebar-expand-width: 200px;
   flex-direction: column;
   box-shadow: 0 4px 4px #00000066;
   z-index: 2;
+
   &.open {
-    top: 56px;
+    top: var(--header-height);
     width: 66.66%;
   }
 }
@@ -96,41 +102,5 @@ $sidebar-expand-width: 200px;
     .navbar-sidebar.#{$key}\:navbar-expand ~ .navbar-header {
         margin-left: $sidebar-expand-width;
       }
-  }
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  transition: all 0.25s ease-in;
-  overflow: visible;
-
-  .navbar-sidebar & {
-    // max-height: 0;
-    // opacity: 0;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-  }
-
-  .nav-item {
-    // height: 100%;
-    padding: 1rem;
-
-    display: flex;
-    align-items: center;
-
-    & a {
-      display: flex;
-      align-items: center;
-      height: 100%;
-    }
-
-    &:hover {
-      background-color: #8881;
-    }
-    &.active {
-      background-color: #8883;
-    }
   }
 }

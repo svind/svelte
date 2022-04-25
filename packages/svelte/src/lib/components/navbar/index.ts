@@ -1,6 +1,4 @@
 export {default as Sidebar} from './Sidebar.svelte'
 export {default as Header} from './Header.svelte'
-export {default as Nav} from './Nav.svelte'
-export {default as NavItem} from './NavItem.svelte'
 export {default as NavBrand} from './NavBrand.svelte'
 export {default as NavbarToggler} from './NavbarToggler.svelte'

@@ -1,7 +1,9 @@
 {
   "name": "@svind/svelte",
-  "version": "0.0.11",
+  "version": "0.0.16",
   "svelte": "./index.js",
+  "main": "./index.js",
+  "module": "./index.js",
   "type": "module",
   "publishConfig": {
     "access": "public"
