@@ -2,12 +2,14 @@
   display: flex;
   flex-direction: column;
   padding: 0.25rem 0;
-  border: 1px solid #5555;
+  background-color: var(--base-100);
+  border: 1px solid var(--base-400);
   border-radius: 0.25rem;
-  box-shadow: 0 0.25rem 1rem -0.5rem #0004;
+  box-shadow: 0 0.25rem 1rem -0.5rem var(--base-shadow);
+  cursor: pointer;
 
   --padding: 0.5rem 0.75rem;
-  --border-color: red;
+  --border-color: #{variant('primary')};
 
   & a {
     width: 100%;
@@ -15,7 +17,7 @@
   }
 
   // if menu is inside sidebar
-  .navbar-sidebar & {
+  .navbar-sidebar &, .navbar-header &  {
     padding: 0;
     height: 100%;
     border: none;
@@ -29,8 +31,16 @@
     }
   }
 
+  .navbar-header & {
+    align-items: center; 
+  }
+
   &.menu-bordered {
     border-left: 2px solid var(--border-color);
+  }
+
+  &.menu-horizontal {
+    flex-direction: row;
   }
 
   &.compact {
@@ -41,7 +51,7 @@
   .menu-divider {
     height: 0;
     margin: 0.5rem;
-    border-top: 1px solid #5555;
+    border-top: 1px solid var(--base-focus);
   }
 
   .menu-title {
@@ -68,11 +78,11 @@
     &.active,
     &:active {
       color: #4060a0;
-      background-color: #8884 !important;
+      background-color: var(--base-400) !important;
     }
 
     &:hover {
-      background-color: #8883;
+      background-color: var(--base-300);
     }
   }
 }

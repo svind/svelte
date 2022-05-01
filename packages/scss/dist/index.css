@@ -2255,6 +2255,46 @@ body {
   border-top: 1px solid var(--border-color);
 }
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown .dropdown-target {
+  display: inline;
+  width: 100%;
+  height: 100%;
+}
+.dropdown .dropdown-content {
+  position: absolute;
+  z-index: 1;
+  min-width: 200px;
+  display: none;
+  opacity: 0;
+}
+.dropdown .dropdown-content.dropdown-end {
+  right: 0;
+}
+.dropdown .dropdown-content.dropdown-top {
+  bottom: 100%;
+}
+.dropdown .dropdown-content.dropdown-left {
+  right: 100%;
+}
+.dropdown .dropdown-content.dropdown-right {
+  left: 100%;
+}
+.dropdown .dropdown-content.dropdown-left, .dropdown .dropdown-content.dropdown-right {
+  top: 0;
+}
+.dropdown .dropdown-content.dropdown-left.dropdown-end, .dropdown .dropdown-content.dropdown-right.dropdown-end {
+  bottom: 0;
+  top: auto;
+}
+.dropdown .dropdown-content.open {
+  display: block;
+  opacity: 1;
+}
+
 .icon {
   vertical-align: text-top;
 }
@@ -2484,6 +2524,71 @@ body {
   --size: 1.5rem;
 }
 
+.menu {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem 0;
+  border: 1px solid rgba(85, 85, 85, 0.3333333333);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 1rem -0.5rem rgba(0, 0, 0, 0.2666666667);
+  --padding: 0.5rem 0.75rem;
+  --border-color: red;
+}
+.menu a {
+  width: 100%;
+  height: 100%;
+}
+.navbar-sidebar .menu {
+  padding: 0;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: auto;
+}
+.navbar-sidebar .menu .dropdown-content {
+  min-width: 100%;
+  padding-left: 1rem;
+}
+.menu.menu-bordered {
+  border-left: 2px solid var(--border-color);
+}
+.menu.compact {
+  --padding: 0.5rem;
+  padding: 0;
+}
+.menu .menu-divider {
+  height: 0;
+  margin: 0.5rem;
+  border-top: 1px solid rgba(85, 85, 85, 0.3333333333);
+}
+.menu .menu-title {
+  font-size: 0.75rem;
+  opacity: 0.4;
+  padding: var(--padding);
+  pointer-events: none;
+  user-select: none;
+  font-weight: 700;
+}
+.menu .menu-item {
+  padding: var(--padding);
+  gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+.menu .menu-item.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+.menu .menu-item.active, .menu .menu-item:active {
+  color: #4060a0;
+  background-color: rgba(136, 136, 136, 0.2666666667) !important;
+}
+.menu .menu-item:hover {
+  background-color: rgba(136, 136, 136, 0.2);
+}
+
 body.modal-open {
   overflow: hidden;
 }
@@ -2517,7 +2622,8 @@ body.modal-open {
 }
 
 .navbar-header {
-  height: 56px;
+  --header-height: 56px;
+  height: var(--header-height);
   padding-left: 1rem;
   padding-right: 1rem;
   top: 0;
@@ -2540,7 +2646,7 @@ body.modal-open {
   align-items: center;
   justify-content: center;
   opacity: 0.8;
-  height: 56px;
+  height: var(--header-height);
   color: inherit;
   background-color: rgba(0, 0, 0, 0);
 }
@@ -2563,11 +2669,14 @@ body.modal-open {
 }
 
 .navbar-sidebar {
+  --header-height: 56px;
   width: 0;
+  display: flex;
+  flex-direction: column;
   position: fixed;
   overflow-x: hidden;
   overflow-y: auto;
-  top: 56px;
+  top: var(--header-height);
   bottom: 0;
   left: 0;
   transition: width 0.25s ease;
@@ -2578,7 +2687,7 @@ body.modal-open {
   z-index: 2;
 }
 .navbar-sidebar.open {
-  top: 56px;
+  top: var(--header-height);
   width: 66.66%;
 }
 
@@ -2663,34 +2772,6 @@ body.modal-open {
     margin-left: 200px;
   }
 }
-.nav {
-  display: flex;
-  align-items: center;
-  transition: all 0.25s ease-in;
-  overflow: visible;
-}
-.navbar-sidebar .nav {
-  flex-direction: column;
-  align-items: stretch;
-  width: 100%;
-}
-.nav .nav-item {
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-}
-.nav .nav-item a {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-.nav .nav-item:hover {
-  background-color: rgba(136, 136, 136, 0.0666666667);
-}
-.nav .nav-item.active {
-  background-color: rgba(136, 136, 136, 0.2);
-}
-
 .page {
   width: 100vw;
   height: 100vh;
@@ -2700,6 +2781,7 @@ body.modal-open {
   flex-direction: column;
 }
 .page .page-wrapper {
+  height: 100%;
   display: flex;
   flex-direction: column;
   position: relative;

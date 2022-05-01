@@ -1,5 +1,9 @@
 <script lang="ts">
   import clsx from "clsx";
+  
+  let className = ''
+  export {className as class}
+  
   export let compact: boolean = undefined;
 
   export let rounded: boolean = undefined;
@@ -10,7 +14,7 @@
     compact,
     "menu-rounded": rounded,
     "menu-bordered": bordered,
-  });
+  }, className);
 </script>
 
 <ul class={classes}>

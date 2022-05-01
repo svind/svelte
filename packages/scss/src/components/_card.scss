@@ -1,7 +1,9 @@
 .card {
 
-  --border-color: #8883;
-  $header-footer-color: #8881;
+  background-color: var(--base);
+  color: var(--base-content);
+  --border-color: var(--base-500);
+  $header-footer-color: var(--base-200);
 
   border: 1px solid var(--border-color);
   border-radius: 4px;
@@ -22,6 +24,7 @@
   }
 
   &-header {
+    display: flex;
     border-bottom: 1px solid var(--border-color);
   }
 

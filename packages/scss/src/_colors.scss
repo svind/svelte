@@ -22,15 +22,9 @@ $colors: (
 );
 
 
-@function to-hsl($color) {
-  @return (hue($color), saturation($color), lightness($color));
-}
 
 
-@function color-yiq($color-list) {
-
-  $color: hsl(nth($color-list, 1), nth($color-list, 2), nth($color-list, 3));
-
+@function color-yiq($color) {
   $red: red($color);
   $green: green($color);
   $blue: blue($color);
@@ -39,17 +33,19 @@ $colors: (
 
   @return $yiq;
 }
+
+@function is-dark($color) {
+  @return color-yiq($color) < 50;
+}
   
 @function color($name, $opacity: 1) {
-  @return to-hsl(map-get($colors, $name));
+  $color: map-get($colors, $name);
+
+  @return if($opacity == 1, $color, rgba($color, $opacity));
 }
 
 @function content-color($color) {
-  @return if(color-yiq($color) < 50, color('light'), color('dark'));
-}
-
-@function get-color($color, $opacity: 1) {
-  @return #{"hsla(#{$color}, #{$opacity})"}
+  @return if(is-dark($color), color('light'), color('dark'));
 }
 
 
@@ -65,11 +61,14 @@ $variants: (
 );
 
 @function focus-color($color) {
-  @return (nth($color, 1), nth($color, 2), nth($color, 3) - 5%);
+  $value: +5%;
+  @debug $color, is-dark($color), lighten($color, $value), darken($color, $value);
+  @return if(is-dark($color), lighten($color, $value), darken($color, $value));
 }
 
 @function variant($key: "primary", $opacity: 1) {
   $color: map-get($variants, $key);
-  @return ($color);
-}
 
+  $with-opacity: rgba($color, $opacity);
+  @return if($opacity == 1, $color, $with-opacity);
+}

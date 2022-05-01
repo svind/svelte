@@ -1,17 +1,17 @@
 $lt-opacity: 0.2;
 
 @mixin bg-color($color) {
-  background-color: get-color($color, 1);
-  color: get-color(content-color($color));
+  background-color: $color;
+  color: content-color($color);
 }
 @mixin bg-color-outline($color) {
-  border: 1px solid get-color($color);
-  color: get-color($color);
+  border: 1px solid $color;
+  color: $color;
 }
 
 @mixin bg-color-lt($color) {
-  background-color: get-color($color, $lt-opacity);
-  color: get-color($color);
+  background-color: rgba($color, $lt-opacity);
+  color: $color;
 }
 
 @each $key, $value in $colors {
@@ -38,9 +38,22 @@ $lt-opacity: 0.2;
   }
 }
 
-.dark {
-  @include bg-color(to-hsl(#202020));
+// .dark {
+//   @include bg-color(to-hsl(#202020));
+// }
+
+.bg-base {
+  background-color: var(--base);
+  color: var(--base-content);
 }
+@for $i from 1 through 9 {
+
+  .bg-base-#{$i}00 {
+    background-color: var(--base-#{$i}00);
+    color: var(--base-content);
+  }
+}
+
 
 @for $key from 0 through 5 {
   $value: $key * 0.25rem;

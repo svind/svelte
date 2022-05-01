@@ -2,137 +2,148 @@ $button-border-radius: 4px !default;
 $button-padding-vertical: 8px !default;
 $button-padding-horizontal: 16px !default;
 $button-disabled-opacity: 65% !default;
-$button-focus-shadow-opacity: 0.2 !default;
+$button-focus-shadow-opacity: 0 !default;
 $button-size-ratio: 2.5 !default;
 
 @mixin button-variant($key) {
-  --color: var(#{"--" + $key});
-  --content-color: var(#{"--" + $key + "-content"});
-  --focus-color: var(#{"--" + $key + "-focus"});
-
-  --border-color: var(--color);
+  --color: var(#{'--' + $key+ '-800'});
+	--content-color: var(#{'--' + $key + '-content'});
+	--shadow-color: var(#{'--' + $key + '-200'});
+	--focus-color: var(#{'--' + $key + '-900'});
 }
 
 .btn {
-  --color: #{color("light")};
-  --content-color: #{color("dark")};
-  --focus-color: #{focus-color(color("light"))};
-  --border-color: var(--content-color);
+  --color: var(--base-400);
+  --focus-color: var(--base-600);
+  --shadow-color: var(--base-shadow);
+  --content-color: var(--base-content);
 
-  .dark & {
-    --color: #{color("dark")};
-    --content-color: #{color("light")};
-    --focus-color: #{focus-color(color("dark"))};
-  }
-  --button-border-radius: #{$button-border-radius};
-  --shadow-opacity: #{$button-focus-shadow-opacity};
+	--border-color: var(--color);
 
-  --padding-y: #{$button-padding-vertical};
-  --padding-x: #{$button-padding-horizontal};
-  --height: calc(#{$button-size-ratio} * var(--size));
-  --width: auto;
+	transition: all 0.5s ease;
 
-  --size: 1rem;
+	--button-border-radius: #{$button-border-radius};
 
-  padding: var(--padding-y) var(--padding-x);
-  --bg-color: var(--color);
-  --text-color: var(--content-color);
+	--padding-y: #{$button-padding-vertical};
+	--padding-x: #{$button-padding-horizontal};
+	--height: calc(#{$button-size-ratio} * var(--size));
+	--width: auto;
 
-  --bg-opacity: 1;
-  --text-opacity: 1;
-  --border-opacity: 0;
+	--size: 1rem;
 
-  background-color: hsla(var(--bg-color), var(--bg-opacity));
-  color: hsla(var(--text-color), var(--text-opacity));
-  border: 1px solid get-color(var(--border-color), var(--border-opacity));
+	padding: var(--padding-y) var(--padding-x);
+	--bg-color: var(--color);
+	--text-color: var(--content-color);
 
-  width: var(--width);
-  height: var(--height);
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	border: 1px solid var(--border-color);
 
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-  border-style: solid;
-  border-width: 1px;
+	width: var(--width);
+	height: var(--height);
 
-  border-radius: var(--button-border-radius);
-  transition: all 0.2s ease;
-  font-size: var(--size);
-  font-weight: 500;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	outline: none;
+	border-style: solid;
+	border-color: transparent;
 
-  &:hover {
-    --bg-color: var(--focus-color);
-  }
+	border-radius: var(--button-border-radius);
+	transition: all 0.2s ease;
+	font-size: var(--size);
+	font-weight: 500;
+
+	&:hover {
+		--bg-color: var(--focus-color);
+	}
 
   &:focus {
-    --border-opacity: 0.5;
-    box-shadow: 0 0 0 0.25rem
-      hsla(var(--border-color, variant("primary")), 0.25);
+    box-shadow: 0 0 0.25rem 0.25rem var(--shadow-color);
+    border: 1px solid var(--shadow-color);
   }
 
-  &.btn-block {
-    --width: 100%;
-  }
+	&.btn-block {
+		--width: 100%;
+	}
 
-  &.btn-wide {
-    --width: 12rem;
-  }
+	&.btn-outline {
+		color: var(--content-color);
+		--bg-color: transparent;
+		border-color: var(--content-color);
 
-  &[disabled],
-  &.disabled {
-    opacity: $button-disabled-opacity;
-    pointer-events: none;
-  }
+		&:hover {
+			--bg-color: var(--focus-color);
+		}
+	}
 
-  &.btn-square,
-  &.btn-circle {
-    --width: calc(var(--size) * #{$button-size-ratio});
-    --padding-y: 0 !important;
-    --padding-x: 0 !important;
-  }
+	&.btn-wide {
+		--width: 12rem;
+	}
 
-  &.btn-square {
-    --button-border-radius: 0;
-  }
+	&[disabled],
+	&.disabled {
+		opacity: $button-disabled-opacity;
+		pointer-events: none;
+	}
 
-  &.btn-circle {
-    --button-border-radius: 50%;
-  }
+	&.btn-square,
+	&.btn-circle {
+		--width: calc(var(--size) * #{$button-size-ratio});
+		--padding-y: 0 !important;
+		--padding-x: 0 !important;
+	}
 
-  @each $key, $value in $sizes {
-    &.btn-#{$key} {
-      --size: #{$value}rem;
-      --padding-x: #{$value}rem;
-    }
-  }
+	&.btn-square {
+		--button-border-radius: 0;
+	}
 
-  @each $key, $value in $variants {
-    &.btn-#{$key} {
-      @include button-variant($key);
-    }
-    &.btn-outline-#{$key} {
-      @include button-variant($key);
-      --border-opacity: 1;
-      --bg-opacity: 0;
-      --border-color: var(--color);
-      --text-color: var(--color);
+	&.btn-circle {
+		--button-border-radius: 50%;
+	}
+
+	@each $key, $value in $sizes {
+		&.btn-#{$key} {
+			--size: #{$value}rem;
+			--padding-x: #{$value}rem;
+		}
+	}
+
+	@each $key, $value in $variants {
+		&.btn-#{$key} {
+			@include button-variant($key);
+
+      color: var(--content-color);
+      border-color: var(--border-color);
+      background-color: var(--color);
 
       &:hover {
-        --bg-opacity: 1;
-        --bg-color: var(--color);
-        --text-color: var(--content-color);
+        background-color: var(--focus-color);
       }
-    }
-  }
+		}
+    
+		&.btn-outline-#{$key} {
+			@include button-variant($key);
 
-  .btn-list > & {
-    &:not(:last-child) {
-      margin-right: calc(var(--size) / 4);
-    }
+			background-color: transparent;
+			border-color: var(--color);
+			color: var(--color);
 
-    &:not(:first-child) {
-      margin-left: calc(var(--size) / 4);
-    }
-  }
+			&:hover {
+        background-color: var(--color);
+        border-color: var(--color);
+				color: var(--content-color);
+			}
+		}
+	}
+
+	.btn-list > & {
+		&:not(:last-child) {
+			margin-right: calc(var(--size) / 4);
+		}
+
+		&:not(:first-child) {
+			margin-left: calc(var(--size) / 4);
+		}
+	}
 }

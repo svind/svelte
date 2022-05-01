@@ -1,6 +1,6 @@
 {
   "name": "@svind/svelte",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "svelte": "./index.js",
   "main": "./index.js",
   "module": "./index.js",
@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@iconify/svelte": "^2.2.1",
-    "@svind/css": "^0.0.10",
+    "@svind/css": "^0.0.12",
     "clsx": "^1.1.1",
     "svelte-adapter-deno-deploy": "^0.6.5",
     "uuid": "^8.3.2"
