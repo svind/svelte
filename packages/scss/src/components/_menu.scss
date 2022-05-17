@@ -17,7 +17,7 @@
   }
 
   // if menu is inside sidebar
-  .navbar-sidebar &, .navbar-header &  {
+  .navbar-sidebar > &, .navbar-header > &  {
     padding: 0;
     height: 100%;
     border: none;
@@ -31,7 +31,8 @@
     }
   }
 
-  .navbar-header & {
+  .navbar-header > & {
+    flex-direction: row;
     align-items: center; 
   }
 

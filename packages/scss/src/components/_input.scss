@@ -10,7 +10,7 @@
 
 .form-control {
 	@include form-control-variant('base');
-
+	--color: var(--content-color);
 	--size: 1rem;
 	--padding-x: 1rem;
 	--padding-y: 0;
@@ -57,8 +57,7 @@
 		}
 
 		&:checked {
-			--bg-opacity: 0.75 !important;
-
+			background-color: var(--color);
 			background-image: $checkbox-checked-icon;
 			background-repeat: no-repeat;
 			background-position: center;
@@ -78,10 +77,9 @@
 		--border-opacity: 1 !important;
 
 		&:checked {
-			$color: get-color(var(--border-color), 1);
 			--radio-size: calc(var(--size) / 4);
 
-			box-shadow: 0 0 0 var(--radio-size) #{$color} inset, 0 0 0 var(--radio-size) #{$color} inset;
+			box-shadow: 0 0 0 var(--radio-size) var(--color) inset, 0 0 0 var(--radio-size) var(--color) inset;
 		}
 	}
 
