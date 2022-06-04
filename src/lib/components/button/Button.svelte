@@ -3,6 +3,8 @@
   import type { Size, Variant } from "../../types";
   import { Icon } from "../icon";
 
+  let className;
+  export {className as class};
   /**
    * button's color
    */
@@ -54,6 +56,11 @@
   export let block: boolean = false;
 
   /**
+   * only show text of button
+  */
+  export let ghost: boolean = false;
+  
+  /**
    * add more horizontal padding
    */
   export let wide: boolean = false;
@@ -64,8 +71,9 @@
   export let icon: string = "";
 
   $: classes = clsx("btn", {
-    [`btn-${variant}`]: !outline && variant,
-    [`btn-outline-${variant}`]: outline && variant,
+    [`btn-${variant}`]: !!variant,
+    [`btn-outline`]: outline && !ghost && variant,
+    [`btn-ghost`]: ghost && !outline && variant,
     [`btn-${size}`]: size,
     [`col-${col}`]: col,
     "btn-disabled": disabled,
@@ -73,7 +81,7 @@
     "btn-circle": circle,
     "btn-block": block,
     "btn-wide": wide,
-  });
+  }, className);
 </script>
 
 {#if href}

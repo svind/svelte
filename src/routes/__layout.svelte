@@ -34,7 +34,7 @@ MenuTitle,
   $: pathname = $page.url.pathname;
 </script>
 
-<Page {dark}>
+<Page class="bg-base" {dark}>
   <Sidebar id={sidebarId} expand="lg">
     <NavBrand>Svind</NavBrand>
     <Menu>
@@ -102,9 +102,26 @@ MenuTitle,
     </Menu>
   </Sidebar>
   <PageWrapper>
-    <Header color="grey-lt">
+    <Header>
       <NavbarToggler target={sidebarId} />
-      Header
+
+      <Menu>
+        <MenuItem>
+          <Dropdown autoClose open>
+            <span slot="target">Dropdown</span>  
+            <Menu>
+              <MenuItem>first</MenuItem>
+              <MenuItem>second</MenuItem>
+              <MenuItem>third</MenuItem>
+            </Menu>
+          </Dropdown>
+        </MenuItem>
+      
+        <MenuItem>Item 1</MenuItem>
+        <MenuItem>Item 2</MenuItem>
+        <MenuItem>Item 3</MenuItem>
+        <MenuItem>Item 4</MenuItem>
+      </Menu> 
     </Header>
     <PageHeader>
       <Breadcrumb>
@@ -136,3 +153,30 @@ MenuTitle,
     </PageBody>
   </PageWrapper>
 </Page>
+
+<style lang="scss" global>
+  .menu-item {
+    color: var(--base-content);
+  }
+  .navbar-sidebar .menu {
+    border: none;
+    padding: 0;
+    box-shadow: none;
+  }
+  .navbar-header > .menu {
+    overflow: visible;
+    background-color: transparent;
+    align-items: stretch;
+
+    & .dropdown .dropdown-content {
+      min-width: 200px;
+      margin-top: 0.75rem;
+      padding-left: 0;
+    }
+  }
+
+  .dropdown .menu {
+    box-shadow: 0 2px 1rem -0.5rem #00000080;
+  }
+
+</style>

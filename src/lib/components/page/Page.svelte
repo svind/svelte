@@ -12,6 +12,6 @@ import { onMount } from "svelte";
         })
     })
 </script>
-<div bind:this={el} class="page" class:dark>
+<div bind:this={el} class="page bg-base" class:dark>
     <slot/>
 </div>

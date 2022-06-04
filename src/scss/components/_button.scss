@@ -6,17 +6,17 @@ $button-focus-shadow-opacity: 0 !default;
 $button-size-ratio: 2.5 !default;
 
 @mixin button-variant($key) {
-  --color: var(#{'--' + $key+ '-800'});
+	--color: var(#{'--' + $key + '-800'});
 	--content-color: var(#{'--' + $key + '-content'});
 	--shadow-color: var(#{'--' + $key + '-200'});
 	--focus-color: var(#{'--' + $key + '-900'});
 }
 
 .btn {
-  --color: var(--base-400);
-  --focus-color: var(--base-600);
-  --shadow-color: var(--base-shadow);
-  --content-color: var(--base-content);
+	--color: var(--base-400);
+	--focus-color: var(--base-600);
+	--shadow-color: var(--base-shadow);
+	--content-color: var(--base-content);
 
 	--border-color: var(--color);
 
@@ -58,10 +58,10 @@ $button-size-ratio: 2.5 !default;
 		--bg-color: var(--focus-color);
 	}
 
-  &:focus {
-    box-shadow: 0 0 0.25rem 0.25rem var(--shadow-color);
-    border: 1px solid var(--shadow-color);
-  }
+	&:focus {
+		box-shadow: 0 0 0.25rem 0.25rem var(--shadow-color);
+		border: 1px solid var(--shadow-color);
+	}
 
 	&.btn-block {
 		--width: 100%;
@@ -74,6 +74,16 @@ $button-size-ratio: 2.5 !default;
 
 		&:hover {
 			--bg-color: var(--focus-color);
+		}
+	}
+
+	&.btn-ghost {
+		color: var(--content-color);
+		--bg-color: transparent;
+		border-color: transparent;
+
+		&:hover {
+			font-weight: bold;
 		}
 	}
 
@@ -112,28 +122,6 @@ $button-size-ratio: 2.5 !default;
 	@each $key, $value in $variants {
 		&.btn-#{$key} {
 			@include button-variant($key);
-
-      color: var(--content-color);
-      border-color: var(--border-color);
-      background-color: var(--color);
-
-      &:hover {
-        background-color: var(--focus-color);
-      }
-		}
-    
-		&.btn-outline-#{$key} {
-			@include button-variant($key);
-
-			background-color: transparent;
-			border-color: var(--color);
-			color: var(--color);
-
-			&:hover {
-        background-color: var(--color);
-        border-color: var(--color);
-				color: var(--content-color);
-			}
 		}
 	}
 

@@ -1,33 +1,40 @@
 {
-  "name": "svind",
-  "private": true,
-  "version": "0.0.1",
-  "description": "component library for react and svelte",
-  "main": "index.js",
+  "name": "@svind/svelte",
+  "version": "0.0.18",
+  "svelte": "./index.js",
+  "main": "./index.js",
+  "module": "./index.js",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "dev:svelte": "npm run dev -w packages/svelte",
-    "dev:react": "npm run dev -w packages/react",
-    "dev:css": "npm run dev -w packages/scss",
-    "deploy:svelte": "npm run deploy -w packages/svelte",
-    "deploy:react": "npm run deploy -w packages/react",
-    "deploy:css": "npm run deploy -w packages/scss",
-    "build:svelte": "npm run build -w packages/svelte",
-    "build:react": "npm run build -w packages/react",
-    "build:css": "npm run build -w packages/scss"
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "predeploy": "npm run package",
+    "deploy": "cd ./package && npm publish && cd ..",
+    "prepare": "svelte-kit sync",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/svind/svind.git"
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "sass": "^1.49.11",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.2.6",
+    "svelte-preprocess": "^4.10.1",
+    "svelte2tsx": "^0.5.8",
+    "tslib": "^2.3.1",
+    "typescript": "~4.6.2"
   },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/svind/svind/issues"
-  },
-  "homepage": "https://github.com/svind/svind#readme",
-  "workspaces": [
-    "packages/scss",
-    "packages/react",
-    "packages/svelte"
-  ]
+  "dependencies": {
+    "@iconify/svelte": "^2.2.1",
+    "@svind/css": "^0.0.13",
+    "clsx": "^1.1.1",
+    "svelte-adapter-deno-deploy": "^0.6.5",
+    "uuid": "^8.3.2"
+  }
 }
