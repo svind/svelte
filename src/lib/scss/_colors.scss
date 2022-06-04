@@ -62,7 +62,6 @@ $variants: (
 
 @function focus-color($color) {
   $value: +5%;
-  @debug $color, is-dark($color), lighten($color, $value), darken($color, $value);
   @return if(is-dark($color), lighten($color, $value), darken($color, $value));
 }
 

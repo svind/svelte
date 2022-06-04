@@ -6,7 +6,7 @@ $button-focus-shadow-opacity: 0 !default;
 $button-size-ratio: 2.5 !default;
 
 @mixin button-variant($key) {
-	--color: var(#{'--' + $key + '-800'});
+	--color: var(#{'--' + $key });
 	--content-color: var(#{'--' + $key + '-content'});
 	--shadow-color: var(#{'--' + $key + '-200'});
 	--focus-color: var(#{'--' + $key + '-900'});
@@ -18,9 +18,20 @@ $button-size-ratio: 2.5 !default;
 	--shadow-color: var(--base-shadow);
 	--content-color: var(--base-content);
 
+	&.btn-outline {
+		--color: var(--base-content);
+		--focus-color: var(--base-500);
+		--shadow-color: var(--base-shadow);
+		--content-color: var(--base);
+	}
+	&.btn-ghost {
+		--color: var(--base-content);
+		--focus-color: var(--base-900);
+	}
+
 	--border-color: var(--color);
 
-	transition: all 0.5s ease;
+	transition: all 0.2s ease;
 
 	--button-border-radius: #{$button-border-radius};
 
@@ -53,42 +64,56 @@ $button-size-ratio: 2.5 !default;
 	transition: all 0.2s ease;
 	font-size: var(--size);
 	font-weight: 500;
+	cursor: pointer;
 
 	&:hover {
 		--bg-color: var(--focus-color);
 	}
 
 	&:focus {
-		box-shadow: 0 0 0.25rem 0.25rem var(--shadow-color);
+		box-shadow: 0 0 0 0.25rem var(--shadow-color);
 		border: 1px solid var(--shadow-color);
 	}
 
+	&:active {
+		transform: scale(0.90);
+	}
 	&.btn-block {
 		--width: 100%;
 	}
 
 	&.btn-outline {
-		color: var(--content-color);
+		--text-color: var(--color);
 		--bg-color: transparent;
-		border-color: var(--content-color);
+		border-color: var(--color);
 
 		&:hover {
-			--bg-color: var(--focus-color);
+			--bg-color: var(--color);
+			--text-color: var(--content-color);
 		}
 	}
 
 	&.btn-ghost {
-		color: var(--content-color);
+		--text-color: var(--color);
 		--bg-color: transparent;
 		border-color: transparent;
+		font-weight: bold;
 
 		&:hover {
-			font-weight: bold;
+			--text-color: var(--focus-color);
+		}
+		
+		&:focus {
+			box-shadow: none;
 		}
 	}
 
 	&.btn-wide {
 		--width: 12rem;
+	}
+
+	&.btn-link:hover {
+		text-decoration: underline;
 	}
 
 	&[disabled],
@@ -99,6 +124,7 @@ $button-size-ratio: 2.5 !default;
 
 	&.btn-square,
 	&.btn-circle {
+		font-size: calc(var(--size) * 2);
 		--width: calc(var(--size) * #{$button-size-ratio});
 		--padding-y: 0 !important;
 		--padding-x: 0 !important;

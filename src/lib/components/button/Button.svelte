@@ -70,15 +70,21 @@
    */
   export let icon: string = "";
 
+  /**
+   * show link style for button 
+   */
+  export let link: boolean = false
+
   $: classes = clsx("btn", {
     [`btn-${variant}`]: !!variant,
-    [`btn-outline`]: outline && !ghost && variant,
-    [`btn-ghost`]: ghost && !outline && variant,
+    [`btn-outline`]: outline && !ghost ,
+    [`btn-ghost`]: ghost && !outline,
     [`btn-${size}`]: size,
     [`col-${col}`]: col,
     "btn-disabled": disabled,
     "btn-square": square,
     "btn-circle": circle,
+    "btn-link": link,
     "btn-block": block,
     "btn-wide": wide,
   }, className);

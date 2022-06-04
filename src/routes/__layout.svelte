@@ -1,5 +1,5 @@
 <script>
-  import "@svind/css/src/index.scss";
+  import "$lib/scss/index.scss";
 
   import {
     Card,

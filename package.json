@@ -32,7 +32,6 @@
   },
   "dependencies": {
     "@iconify/svelte": "^2.2.1",
-    "@svind/css": "^0.0.13",
     "clsx": "^1.1.1",
     "svelte-adapter-deno-deploy": "^0.6.5",
     "uuid": "^8.3.2"

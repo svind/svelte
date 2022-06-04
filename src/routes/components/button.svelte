@@ -35,6 +35,42 @@
   <Button outline variant="warning">Button</Button>
 </ButtonList>
 
+<h3>Ghost variants</h3>
+<ButtonList>
+  <Button ghost variant="primary">Button</Button>
+  <Button ghost variant="secondary">Button</Button>
+  <Button ghost variant="success">Button</Button>
+  <Button ghost variant="info">Button</Button>
+  <Button ghost variant="error">Button</Button>
+  <Button ghost variant="warning">Button</Button>
+</ButtonList>
+
+<Button link ghost>Link ghost</Button>
+<Button link outline>Link outline</Button>
+<Button link>Link</Button>
+
+<h3>Ghost + Square</h3>
+<ButtonList>
+  <Button ghost circle variant="primary">
+    <Icon icon="fa-solid:user"/>
+  </Button>
+  <Button ghost circle variant="secondary">
+    <Icon icon="fa-solid:user"/>
+  </Button>
+  <Button ghost circle variant="success">
+    <Icon icon="fa-solid:user"/>
+  </Button>
+  <Button ghost circle variant="info">
+    <Icon icon="fa-solid:user"/>
+  </Button>
+  <Button ghost circle variant="error">
+    <Icon icon="fa-solid:user"/>
+  </Button>
+  <Button ghost circle variant="warning">
+    <Icon icon="fa-solid:user"/>
+  </Button>
+</ButtonList>
+
 <h3>Button Sizes</h3>
 <ButtonList>
   <Button variant="primary" size="xs">Button</Button>
