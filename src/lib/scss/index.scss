@@ -8,6 +8,7 @@
 @import "./utilities";
 @import "./overlay";
 
+@import "./components/accordion";
 @import "./components/avatar";
 @import "./components/badge";
 @import "./components/breadcrumb";
@@ -22,6 +23,7 @@
 @import "./components/navbar";
 @import "./components/page";
 @import "./components/form-group";
+@import "./components/table";
 
 :root {
     @each $key, $value in $variants {

@@ -1,3 +1,4 @@
+export * from './accordion/index.js'
 export * from './avatar/index.js'
 export * from './breadcrumb/index.js'
 export * from './button/index.js'

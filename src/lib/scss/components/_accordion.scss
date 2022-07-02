@@ -1,0 +1,35 @@
+.accordion-body {
+	padding: 1rem;
+}
+
+.accordion-item {
+    border: 1px solid #cdcdcd;
+    border-radius: 4px;
+
+    .accordion-header {
+        padding: 0.5rem 1rem;
+
+        font-weight: 400;
+
+        &.active {
+            padding-bottom: 0;
+            font-weight: 700;
+        }
+    }
+
+    .dark & {
+        border: 1px solid #505050;
+    }
+
+    &:not(:last-of-type) {
+        border-bottom: none;
+
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    &:not(:first-of-type) {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
