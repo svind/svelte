@@ -1,6 +1,9 @@
 <script lang="ts">
   import clsx from "clsx";
 
+  let className = ''
+    export {className as class}
+
   export let open: boolean = undefined;
 //   export let hover: boolean = undefined;
   export let autoClose: boolean = false;
@@ -22,7 +25,7 @@
     open,
     [`dropdown-${position}`]: position,
     [`dropdown-${align}`]: align,
-  });
+  }, className);
 </script>
 
 <div class="dropdown">

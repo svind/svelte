@@ -1,45 +1,52 @@
 <script lang="ts">
-  import clsx from "clsx";
-  import type { Color, Size } from "../../types";
+	import clsx from 'clsx';
+	import type { Color, Size } from '../../types';
 
-  /**
-   * Color of badge
-   */
-  export let color: Color = 'blue';
+	/**
+	 * Color of badge
+	 */
+	export let color: Color = 'blue';
 
-  /**
-   * Size of badge
-   */
-  export let size: Size = undefined;
-  /**
-   * add transparency for background color
-   */
-  export let soft: boolean = false;
+	let className = '';
+	export { className as class };
 
-  /**
-   * only draw a border
-   */
-  export let outline: boolean = false;
+	/**
+	 * Size of badge
+	 */
+	export let size: Size = undefined;
+	/**
+	 * add transparency for background color
+	 */
+	export let soft: boolean = false;
 
-  /**
-   * href to pass for <a> element
-   */
-  export let href: string = undefined;
+	/**
+	 * only draw a border
+	 */
+	export let outline: boolean = false;
 
-  $: classes = clsx("badge", {
-    [`bg-${color}`]: !outline && !soft && color,
-    [`bg-${color}-lt`]: !outline && soft && color,
-    [`bg-${color}-outline`]: outline && !soft && color,
-    [`badge-${size}`]: size,
-  });
+	/**
+	 * href to pass for <a> element
+	 */
+	export let href: string = undefined;
+
+	$: classes = clsx(
+		'badge',
+		{
+			[`bg-${color}`]: !outline && !soft && color,
+			[`bg-${color}-lt`]: !outline && soft && color,
+			[`bg-${color}-outline`]: outline && !soft && color,
+			[`badge-${size}`]: size
+		},
+		className
+	);
 </script>
 
 {#if href}
-  <a {href} class={classes}>
-    <slot />
-  </a>
+	<a {href} class={classes}>
+		<slot />
+	</a>
 {:else}
-  <span class={classes}>
-    <slot />
-  </span>
+	<span class={classes}>
+		<slot />
+	</span>
 {/if}

@@ -7,8 +7,12 @@
   let statics = false;
   export { statics as static };
   export let open = false;
+  
+  let className = ''
+    export {className as class}
 
-  $: classes = clsx("modal", "z-4", { open });
+
+  $: classes = clsx("modal", "z-4", { open }, className);
 
   function close() {
     if (!statics) open = false;

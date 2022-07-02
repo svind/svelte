@@ -1,11 +1,17 @@
 <script lang="ts">
+import clsx from "clsx";
+
+
   export let href: string = undefined;
   export let active: boolean = false;
+  let className = ''
+    export {className as class}
 
-  $: console.log(href);
+
+  $: classes = clsx('nav-item',{active}, className);
 </script>
 
-<li on:click class="nav-item" class:active>
+<li on:click class={classes}>
   {#if href}
     <a {href}>
       <slot />

@@ -1,12 +1,25 @@
 <script>
+	import clsx from 'clsx';
 
-import { CardBody } from "../card";
+	import { CardBody } from '../card';
 
-export let col = 10;
+	let className = '';
+	export { className as class };
 
+	export let col = 10;
+
+	$: classes = clsx(
+		'card',
+		'bg-base',
+		{
+			[`col-${col}`]: !!col
+		},
+		className
+	);
 </script>
-<div on:click|stopPropagation class="card {col ? "col-" + col : null} bg-light dark:bg-dark">
-    <CardBody>
-        <slot/>
-    </CardBody>
+
+<div on:click|stopPropagation class={classes}>
+	<CardBody>
+		<slot />
+	</CardBody>
 </div>

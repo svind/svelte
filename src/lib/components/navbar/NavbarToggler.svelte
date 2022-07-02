@@ -1,23 +1,29 @@
 <script lang="ts">
-    export let target: string = undefined;
+	import clsx from 'clsx';
 
-    let collapsed = true;
+	let className = '';
+	export { className as class };
 
-    function click() {
-        const element = document.getElementById(target)
+	export let target: string = undefined;
 
-        console.log('click', element)
-        if(element) {
+	let collapsed = true;
 
-            if(element.classList.contains('open')) {
-                collapsed = true;
-                element.classList.remove('open');
-            } else {
-                collapsed = false;
-                element.classList.add('open');
-            }
-        }
+	function click() {
+		const element = document.getElementById(target);
 
-    }
+		console.log('click', element);
+		if (element) {
+			if (element.classList.contains('open')) {
+				collapsed = true;
+				element.classList.remove('open');
+			} else {
+				collapsed = false;
+				element.classList.add('open');
+			}
+		}
+	}
+
+	$: classes = clsx('navbar-toggler', className);
 </script>
-<button on:click={click} class="navbar-toggler" class:collapsed></button>
+
+<button on:click={click} class={classes} class:collapsed />

@@ -1,6 +1,6 @@
 {
   "name": "@svind/svelte",
-  "version": "0.0.18",
+  "version": "0.0.22",
   "svelte": "./index.js",
   "main": "./index.js",
   "module": "./index.js",
@@ -13,8 +13,9 @@
     "build": "svelte-kit build",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
+    "prepackage": "sass src/lib/scss/index.scss src/lib/styles.css",
     "predeploy": "npm run package",
-    "deploy": "cd ./package && npm publish && cd ..",
+    "deploy": "npm publish ./package",
     "prepare": "svelte-kit sync",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"

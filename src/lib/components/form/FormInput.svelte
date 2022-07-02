@@ -7,6 +7,9 @@ import type { Size } from "svind/types";
   import Input from "./Input.svelte";
   import Label from "./Label.svelte";
 
+  let className = ''
+    export {className as class}
+
   export let label: string = undefined;
   export let id: string = "form-group-" + uuid();
   export let size: Size = undefined
@@ -14,7 +17,7 @@ import type { Size } from "svind/types";
   export let value: string;
 </script>
 
-<FormGroup {col}>
+<FormGroup {col} class={className}>
   {#if label}
     <Label {size} for={id}>{label}</Label>
   {/if}

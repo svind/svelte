@@ -1,7 +1,12 @@
 <script>
+import clsx from "clsx";
+
 import { onMount } from "svelte";
 
     export let dark = false;
+    let className = ''
+    export {className as class}
+
 
     let el
 
@@ -11,7 +16,9 @@ import { onMount } from "svelte";
             el.appendChild(modal)
         })
     })
+
+    $: classes = clsx('page', 'bg-base', {dark}, className)
 </script>
-<div bind:this={el} class="page bg-base" class:dark>
+<div bind:this={el} class={classes}>
     <slot/>
 </div>

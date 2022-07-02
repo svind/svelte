@@ -1,3 +1,12 @@
-<div class="page-header">
+<script>
+import clsx from "clsx";
+
+
+      let className = ''
+    export {className as class}
+
+  $: classes = clsx('page-header', className)
+</script>
+<div class={classes}>
   <slot />
 </div>
