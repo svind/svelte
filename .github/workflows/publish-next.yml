@@ -18,11 +18,13 @@ jobs:
       - run: npm version prerelease --preid=next
       - run: VERSION=$(node -p "require('./package.json').version")
       
-      - uses: EndBug/add-and-commit@v9
-        with: 
-          default_author: github_actor
-          add: .
-          message: 'release $VERSION'
+      
+      - run: git push "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" 
+      # - uses: EndBug/add-and-commit@v9
+      #   with: 
+      #     default_author: github_actor
+      #     add: .
+      #     message: 'release $VERSION'
 
 
   publish-npm:
