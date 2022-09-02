@@ -18,7 +18,9 @@ jobs:
       - run: npm version prerelease --preid=next
       - run: VERSION=$(node -p "require('./package.json').version")
       
-      
+      - run: echo $VERSION 
+      - run: git log
+      - run: git diff
       - run: git push "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" 
       # - uses: EndBug/add-and-commit@v9
       #   with: 
