@@ -102,6 +102,6 @@
     {#if icon}
       <Icon {icon} />
     {/if}
-    <slot />
+    TEST <slot />
   </button>
 {/if}
