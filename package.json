@@ -1,6 +1,6 @@
 {
   "name": "@svind/svelte",
-  "version": "0.0.26-next.1",
+  "version": "0.0.26-next.2",
   "svelte": "./index.js",
   "main": "./index.js",
   "module": "./index.js",
