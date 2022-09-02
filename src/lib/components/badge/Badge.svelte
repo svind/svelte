@@ -40,7 +40,7 @@
 		className
 	);
 </script>
-
+BADGE
 {#if href}
 	<a {href} class={classes}>
 		<slot />
