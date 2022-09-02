@@ -15,18 +15,9 @@ jobs:
           node-version: 16
       - run: git config user.name "$GITHUB_ACTOR"
       - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-      - run: npm version prerelease --preid=next
+      - run: npm version prerelease --preid=next -m "Release %s"
       - run: VERSION=$(node -p "require('./package.json').version")
-      
-      - run: echo $VERSION 
-      - run: git log
-      - run: git diff
       - run: git push "https://$GITHUB_ACTOR:${{ secrets.ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY.git" 
-      # - uses: EndBug/add-and-commit@v9
-      #   with: 
-      #     default_author: github_actor
-      #     add: .
-      #     message: 'release $VERSION'
 
 
   publish-npm:
@@ -39,6 +30,6 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm run deploy
+      - run: npm run deploy:next
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
