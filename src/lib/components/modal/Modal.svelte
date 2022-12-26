@@ -1,16 +1,13 @@
 <script>
-  import { browser } from "$app/environment";
-
   import clsx from "clsx";
   import { onMount } from "svelte";
 
   let statics = false;
   export { statics as static };
   export let open = false;
-  
-  let className = ''
-    export {className as class}
 
+  let className = "";
+  export { className as class };
 
   $: classes = clsx("modal", "z-4", { open }, className);
 
@@ -25,18 +22,16 @@
   }
 
   onMount(() => {
-    if (browser) {
+    if (typeof window !== "undefined") {
       window.addEventListener("keyup", keyup);
     }
-    
+
     return () => {
-        if (browser) {
-            window.removeEventListener("keyup", keyup);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("keyup", keyup);
       }
     };
   });
-
-  
 </script>
 
 <div data-modal on:keyup={keyup} class={classes} on:click={close}>

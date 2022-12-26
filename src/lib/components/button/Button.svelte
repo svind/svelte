@@ -1,15 +1,10 @@
 <script lang="ts">
-  import type { Size, Variant } from "../../types";
-  import { Icon } from "../icon";
-  import {
-    get_current_component,
-    type ComponentEvents,
-    type ComponentProps,
-  } from "svelte/internal";
+  import { Icon } from "../icon/index.js";
+  import { get_current_component } from "svelte/internal";
   import Base from "../base/Base.svelte";
-  import type { ButtonProps } from "./button.types";
+  import type { ButtonProps } from "./button.types.js";
 
-  interface $$Props extends ButtonProps {}
+  type $$Props = ButtonProps;
 
   export let el: $$Props["el"],
     variant: $$Props["variant"] = undefined,

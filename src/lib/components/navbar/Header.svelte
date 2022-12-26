@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Color } from "../../types";
+  import type { Color } from "../../types/index.js";
 
   import clsx from "clsx";
   import { setContext } from "svelte";
