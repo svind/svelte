@@ -12,19 +12,20 @@ $button-size-ratio: 2.5 !default;
 	--focus-color: var(#{'--' + $key + '-900'});
 }
 
-.btn {
+.button {
 	--color: var(--base-400);
 	--focus-color: var(--base-600);
 	--shadow-color: var(--base-shadow);
 	--content-color: var(--base-content);
 
-	&.btn-outline {
+	&.button-outline {
 		--color: var(--base-content);
 		--focus-color: var(--base-500);
 		--shadow-color: var(--base-shadow);
 		--content-color: var(--base);
 	}
-	&.btn-ghost {
+
+	&.button-ghost {
 		--color: var(--base-content);
 		--focus-color: var(--base-900);
 	}
@@ -71,18 +72,19 @@ $button-size-ratio: 2.5 !default;
 	}
 
 	&:focus {
-		box-shadow: 0 0 0 0.25rem var(--shadow-color);
+		// box-shadow: 0 0 0 0.25rem var(--shadow-color);
 		border: 1px solid var(--shadow-color);
 	}
 
 	&:active {
-		transform: scale(0.90);
+		transform: scale(0.95);
 	}
-	&.btn-block {
+
+	&.button-block {
 		--width: 100%;
 	}
 
-	&.btn-outline {
+	&.button-outline {
 		--text-color: var(--color);
 		--bg-color: transparent;
 		border-color: var(--color);
@@ -93,7 +95,7 @@ $button-size-ratio: 2.5 !default;
 		}
 	}
 
-	&.btn-ghost {
+	&.button-ghost {
 		--text-color: var(--color);
 		--bg-color: transparent;
 		border-color: transparent;
@@ -102,17 +104,17 @@ $button-size-ratio: 2.5 !default;
 		&:hover {
 			--text-color: var(--focus-color);
 		}
-		
+
 		&:focus {
 			box-shadow: none;
 		}
 	}
 
-	&.btn-wide {
+	&.button-wide {
 		--width: 12rem;
 	}
 
-	&.btn-link:hover {
+	&.button-link:hover {
 		text-decoration: underline;
 	}
 
@@ -122,36 +124,38 @@ $button-size-ratio: 2.5 !default;
 		pointer-events: none;
 	}
 
-	&.btn-square,
-	&.btn-circle {
+	&.button-square,
+	&.button-circle {
 		font-size: calc(var(--size) * 2);
 		--width: calc(var(--size) * #{$button-size-ratio});
 		--padding-y: 0 !important;
 		--padding-x: 0 !important;
 	}
 
-	&.btn-square {
+	&.button-square {
 		--button-border-radius: 0;
 	}
 
-	&.btn-circle {
+	&.button-circle {
 		--button-border-radius: 50%;
 	}
 
-	@each $key, $value in $sizes {
-		&.btn-#{$key} {
+	@each $key,
+	$value in $sizes {
+		&.button-size-#{$key} {
 			--size: #{$value}rem;
 			--padding-x: #{$value}rem;
 		}
 	}
 
-	@each $key, $value in $variants {
-		&.btn-#{$key} {
+	@each $key,
+	$value in $variants {
+		&.button-variant-#{$key} {
 			@include button-variant($key);
 		}
 	}
 
-	.btn-list > & {
+	.button-list>& {
 		&:not(:last-child) {
 			margin-right: calc(var(--size) / 4);
 		}

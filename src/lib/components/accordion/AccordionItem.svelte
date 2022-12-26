@@ -1,45 +1,47 @@
-<script>
-	import clsx from 'clsx';
-import { getContext, onDestroy, onMount } from 'svelte';
-import { uuid } from '$lib/utils';
-	import AccordionBody from './AccordionBody.svelte';
+<script lang="ts">
+  import clsx from "clsx";
+  import { getContext, onDestroy, onMount, type ComponentProps } from "svelte";
+  import { uuid } from "$lib/utils";
+  import AccordionBody from "./AccordionBody.svelte";
+  import Base from "../base/Base.svelte";
 
-	let className = '';
-	export { className as class };
+  interface $$Props extends ComponentProps<Base> {
+    active: boolean;
+    title: string;
+  }
 
-    export let id = uuid();
+  export let el: $$Props["el"];
 
-	export let active = false;
+  export let id: $$Props["id"] = uuid();
+  export let active: $$Props["active"] = false;
+  export let title: $$Props["title"] = "";
 
-	export let title = '';
+  const { mount, destroy, toggle, activeItems } = getContext("accordion");
 
-    const {mount, destroy, toggle, activeItems} = getContext('accordion');
+  onMount(() => {
+    mount(id);
+  });
 
-    onMount(() => {
-        mount(id)
-    })
+  onDestroy(() => {
+    destroy(id);
+  });
 
-    onDestroy(() => {
-        destroy(id)
-    })
+  function onToggle() {
+    toggle(id);
+  }
 
-    function onToggle() {
-        toggle(id)
-    }
-    
-    $: active = $activeItems.includes(id)
-	$: classes = clsx('accordion-item', { active }, className);
+  $: active = $activeItems.includes(id);
 </script>
 
-<div class={classes}>
-	<div on:click={onToggle} class="accordion-header" class:active>
-		<slot name="header">
-			<span>{title}</span>
-		</slot>
-	</div>
-	<div class:hidden={!active}>
-		<AccordionBody>
-			<slot />
-		</AccordionBody>
-	</div>
-</div>
+<Base bind:el name="accordion-item" classes={{ active }} {...$$restProps}>
+  <div on:click={onToggle} class="accordion-header" class:active>
+    <slot name="header">
+      <span>{title}</span>
+    </slot>
+  </div>
+  <div class:hidden={!active}>
+    <AccordionBody>
+      <slot />
+    </AccordionBody>
+  </div>
+</Base>

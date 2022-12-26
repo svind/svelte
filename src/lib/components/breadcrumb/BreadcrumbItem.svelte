@@ -1,20 +1,20 @@
 <script lang="ts">
-import clsx from "clsx";
+  import { get_current_component, type ComponentProps } from "svelte/internal";
+  import Base from "../base/Base.svelte";
 
+  interface $$Props extends ComponentProps<Base> {
+    href: string | undefined;
+  }
 
-  export let href: string = undefined;
+  export let href: $$Props["href"] = undefined;
 
-  let className = ''
-  export {className as class}
-
-  $: classes = clsx('breadcrumb-item', className);
-
+  export let el: $$Props["el"];
 </script>
 
-<li class={classes}>
+<Base bind:el name="breadcrumb" tag="li" component={get_current_component()}>
   {#if href}
     <a {href}><slot /></a>
   {:else}
     <slot />
   {/if}
-</li>
+</Base>

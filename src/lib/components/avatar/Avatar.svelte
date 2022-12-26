@@ -1,24 +1,32 @@
 <script lang="ts">
-  import clsx from "clsx";
-  import { Size } from "../../types/size";
+  import type { ComponentProps } from "svelte";
+  import { get_current_component } from "svelte/internal";
+  import type { Size } from "../../types/size";
+  import Base from "../base/Base.svelte";
 
-  let className = ''
-    export {className as class}
+  interface $$Props extends ComponentProps<Base> {
+    src: string;
+    size: Size;
+  }
 
+  export let el: $$Props["el"];
 
-  export let src = undefined;
+  export let src: $$Props["src"] = undefined;
+  export let size: $$Props["size"] = undefined;
 
-  export let text: string = undefined;
-
-  export let size: Size = undefined;
-
-  $: classes = clsx("avatar", {
-    [`avatar-${size}`]: size,
-  }, className);
+  $: classes = { size };
 </script>
 
-<span class={classes} style="background-image: url({src})">
-  {#if text && !src}
-    {text}
+<Base
+  bind:el
+  name="avatar"
+  tag="span"
+  component={get_current_component()}
+  {classes}
+  style="background-image: url({src})"
+  {...$$restProps}
+>
+  {#if $$slots["default"] && !src}
+    <slot />
   {/if}
-</span>
+</Base>

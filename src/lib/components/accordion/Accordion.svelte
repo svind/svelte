@@ -1,43 +1,54 @@
-<script>
-	import clsx from 'clsx';
-import { setContext } from 'svelte';
-import { writable } from 'svelte/store';
+<script lang="ts">
+  import { setContext } from "svelte";
+  import { get_current_component, type ComponentProps } from "svelte/internal";
+  import { writable } from "svelte/store";
+  import Base from "../base/Base.svelte";
+  import type { AccordionContext } from "./accordion.types";
 
-	let className = '';
-	export { className as class };
+  interface $$Props extends ComponentProps<Base> {
+    stayOpen?: boolean;
+  }
 
-    export let stayOpen = false;
+  export let stayOpen: $$Props["stayOpen"] = false;
 
-    const activeItems = writable([])
+  const activeItems = writable<string[]>([]);
 
-    setContext('accordion', {
-        mount(id) {
-            console.log('mount',id)
-        },
-        destroy(id) {
-            console.log('destroy',id)
-        },
-        toggle(id) {
-            if(stayOpen) {
-                if($activeItems.includes(id)) {
-                    $activeItems = $activeItems.filter(i => i !== id)
-                } else {
-                    $activeItems = [id, ...$activeItems]
-                }
-            } else {
-                if($activeItems.length === 0 || $activeItems[0] !== id) {
-                    activeItems.set([id])
-                } else {
-                    activeItems.set([])
-                }
-            }
-        },
-        activeItems
-    })
+  setContext<AccordionContext>("accordion", {
+    mount(id) {
+      console.log("mount", id);
+    },
+    destroy(id) {
+      console.log("destroy", id);
+    },
+    toggle(id) {
+      if (stayOpen) {
+        if ($activeItems.includes(id)) {
+          $activeItems = $activeItems.filter((i) => i !== id);
+        } else {
+          $activeItems = [id, ...$activeItems];
+        }
+      } else {
+        if ($activeItems.length === 0 || $activeItems[0] !== id) {
+          activeItems.set([id]);
+        } else {
+          activeItems.set([]);
+        }
+      }
+    },
+    activeItems,
+  });
 
-	$: classes = clsx('accordion', className);
+  export let el = null;
+
+  let classes = {};
 </script>
 
-<div class={classes}>
-	<slot />
-</div>
+<Base
+  bind:el
+  name="accordion"
+  {classes}
+  component={get_current_component()}
+  {...$$restProps}
+>
+  <slot />
+</Base>

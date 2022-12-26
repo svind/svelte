@@ -9,15 +9,14 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "package": "svelte-kit package",
-    "preview": "svelte-kit preview",
+    "dev": "vite dev",
+    "build": "vite build",
+    "package": "vite package",
+    "preview": "vite preview",
     "prepackage": "sass src/lib/scss/index.scss src/lib/styles.css",
     "predeploy": "npm run package",
     "deploy": "npm publish ./package",
     "deploy:next": "npm run package && npm publish ./package --tag next",
-    "prepare": "svelte-kit sync",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
   },

@@ -12,7 +12,7 @@ built with scss
 
 
 <br />
-
+<!-- 
 <style lang="scss" global>
   pre {
     overflow-x: scroll;
@@ -26,4 +26,4 @@ built with scss
     line-height: 2rem;
     margin-top: 1rem;
   }
-</style>
+</style> -->

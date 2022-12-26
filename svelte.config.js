@@ -1,5 +1,5 @@
 import adapter from "svelte-adapter-deno-deploy";
-import path from 'path'
+import path from "path";
 import preprocess from "svelte-preprocess";
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -10,18 +10,14 @@ const config = {
 
   kit: {
     adapter: adapter({
-      out: 'build',
-      filesPrefix: './',
+      out: "build",
+      filesPrefix: "./",
       imports: {
-        "tesssssst": "test" // TODO: Should not have this in future
-      }
-      }),
-    vite: {
-      resolve: {
-        alias: {
-          svind: path.resolve("./src/lib"),
-        },
+        tesssssst: "test", // TODO: Should not have this in future
       },
+    }),
+    alias: {
+      svind: path.resolve("./src/lib"),
     },
   },
 };

@@ -1,12 +1,12 @@
-<script>
-	import clsx from 'clsx';
+<script lang="ts">
+  import { get_current_component, type ComponentProps } from "svelte/internal";
+  import Base from "../base/Base.svelte";
 
-	let className = '';
-	export { className as class };
+  interface $$Props extends ComponentProps<Base> {}
 
-	$: classes = clsx('breadcrumb', className);
+  export let el: $$Props["el"];
 </script>
 
-<ol class={classes}>
-	<slot />
-</ol>
+<Base bind:el name="breadcrumb" tag="ol" component={get_current_component()}>
+  <slot />
+</Base>

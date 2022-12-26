@@ -1,21 +1,25 @@
 <script lang="ts">
-  import { Color } from "../../types";
+  import type { Color } from "../../types";
 
   import clsx from "clsx";
   import { setContext } from "svelte";
 
-  let className = ''
-    export {className as class}
+  let className = "";
+  export { className as class };
 
   export let fixed = false;
   export let color: Color | "transparent" | "auto" = "auto";
   setContext("nav", true);
 
-  $: classes = clsx("navbar-header", {
-    "navbar-fixed": fixed,
-    [`bg-${color}`]: color && color !== "transparent" && color !== "auto",
-    [`bg-light dark:bg-dark`]: color === "auto",
-  }, className);
+  $: classes = clsx(
+    "navbar-header",
+    {
+      "navbar-fixed": fixed,
+      [`bg-${color}`]: color && color !== "transparent" && color !== "auto",
+      [`bg-light dark:bg-dark`]: color === "auto",
+    },
+    className
+  );
 </script>
 
 <header class={classes}>

@@ -1,12 +1,20 @@
-<script>
-	import clsx from 'clsx';
+<script lang="ts">
+  import { get_current_component, type ComponentProps } from "svelte/internal";
+  import Base from "../base/Base.svelte";
 
-	let className = '';
-	export { className as class };
+  interface $$Props extends ComponentProps<Base> {}
 
-	$: classes = clsx('accordion-body', className);
+  export let el: $$Props["el"];
+  let classes = {};
 </script>
 
-<div class={classes}>
-	<slot />
-</div>
+<Base
+  bind:el
+  tag="div"
+  name="accordion-body"
+  component={get_current_component()}
+  {classes}
+  {...$$restProps}
+>
+  <slot />
+</Base>

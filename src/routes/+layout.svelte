@@ -1,5 +1,5 @@
 <script>
-  import "$lib/scss/index.scss";
+  // import "$lib/scss/index.scss";
 
   import {
     Card,
@@ -23,7 +23,7 @@
     MenuItem,
     Dropdown,
     Icon,
-MenuTitle,
+    MenuTitle,
   } from "$lib/components";
   import { page } from "$app/stores";
 
@@ -39,16 +39,12 @@ MenuTitle,
     <NavBrand>Svind</NavBrand>
     <Menu>
       <MenuTitle>Sidebar</MenuTitle>
-      <MenuItem
-        active={pathname === "/home"}
-        href="/home"
-      >
+      <MenuItem active={pathname === "/home"} href="/home">
         <Icon icon="fa-solid:home" />
         Home
       </MenuItem>
-      <MenuItem
-        active={pathname === "/playground"}
-        href="/playground">Playground</MenuItem
+      <MenuItem active={pathname === "/playground"} href="/playground"
+        >Playground</MenuItem
       >
       <Dropdown active={pathname.startsWith("/components/")}>
         <MenuItem slot="target">Components</MenuItem>
@@ -108,7 +104,7 @@ MenuTitle,
       <Menu>
         <MenuItem>
           <Dropdown autoClose open>
-            <span slot="target">Dropdown</span>  
+            <span slot="target">Dropdown</span>
             <Menu>
               <MenuItem>first</MenuItem>
               <MenuItem>second</MenuItem>
@@ -116,20 +112,26 @@ MenuTitle,
             </Menu>
           </Dropdown>
         </MenuItem>
-      
+
         <MenuItem>Item 1</MenuItem>
         <MenuItem>Item 2</MenuItem>
         <MenuItem>Item 3</MenuItem>
         <MenuItem>Item 4</MenuItem>
-      </Menu> 
+      </Menu>
     </Header>
     <PageHeader>
       <Breadcrumb>
         {#each pathname.split("/") as path, index}
-        {@const name = path === '' ? 'Home' : path}
-        {@const href = path === '' ? '/' : pathname.split('/').slice(1, index+1).join('/')}
+          {@const name = path === "" ? "Home" : path}
+          {@const href =
+            path === ""
+              ? "/"
+              : pathname
+                  .split("/")
+                  .slice(1, index + 1)
+                  .join("/")}
           <BreadcrumbItem {href}>
-              {name}
+            {name}
           </BreadcrumbItem>
         {/each}
       </Breadcrumb>
@@ -138,9 +140,8 @@ MenuTitle,
           <PageTitle>svind</PageTitle>
           <PageSubtitle>Subtitle</PageSubtitle>
         </Col>
-
         <Col col="auto">
-          <Button on:click={() => (dark = !dark)}>Toggle Dark</Button>
+          <Button  on:click={() => (dark = !dark)}>Toggle Dark</Button>
         </Col>
       </Row>
     </PageHeader>
@@ -153,7 +154,7 @@ MenuTitle,
     </PageBody>
   </PageWrapper>
 </Page>
-
+<!-- 
 <style lang="scss" global>
   .menu-item {
     color: var(--base-content);
@@ -178,5 +179,4 @@ MenuTitle,
   .dropdown .menu {
     box-shadow: 0 2px 1rem -0.5rem #00000080;
   }
-
-</style>
+</style> -->

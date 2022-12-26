@@ -1,52 +1,41 @@
 <script lang="ts">
-	import clsx from 'clsx';
-	import type { Color, Size } from '../../types';
+  import clsx from "clsx";
+  import type { ComponentProps } from "svelte";
+  import { get_current_component } from "svelte/internal";
+  import type { Color, Size } from "../../types";
+  import Base from "../base/Base.svelte";
 
-	/**
-	 * Color of badge
-	 */
-	export let color: Color = 'blue';
+  interface $$Props extends ComponentProps<Base> {
+    color: Color;
+    size: Size;
+    ghost: boolean;
+    outline: boolean;
+    href: string | undefined;
+  }
 
-	let className = '';
-	export { className as class };
+  export let el: $$Props["el"];
+  export let color: $$Props["color"] = "blue";
+  export let size: $$Props["size"] = undefined;
+  export let ghost: $$Props["ghost"] = false;
+  export let outline: $$Props["outline"] = false;
+  export let href: $$Props["href"] = undefined;
 
-	/**
-	 * Size of badge
-	 */
-	export let size: Size = undefined;
-	/**
-	 * add transparency for background color
-	 */
-	export let soft: boolean = false;
-
-	/**
-	 * only draw a border
-	 */
-	export let outline: boolean = false;
-
-	/**
-	 * href to pass for <a> element
-	 */
-	export let href: string = undefined;
-
-	$: classes = clsx(
-		'badge',
-		{
-			[`bg-${color}`]: !outline && !soft && color,
-			[`bg-${color}-lt`]: !outline && soft && color,
-			[`bg-${color}-outline`]: outline && !soft && color,
-			[`badge-${size}`]: size
-		},
-		className
-	);
+  $: classes = {
+    [`bg-${color}`]: !outline && !ghost && color,
+    [`bg-${color}-lt`]: !outline && ghost && color,
+    [`bg-${color}-outline`]: outline && !ghost && color,
+    [`badge-${size}`]: size,
+  };
 </script>
-BADGE
-{#if href}
-	<a {href} class={classes}>
-		<slot />
-	</a>
-{:else}
-	<span class={classes}>
-		<slot />
-	</span>
-{/if}
+
+<Base
+  bind:el
+  name="badge"
+  tag={href ? "a" : "span"}
+  component={get_current_component()}
+  {href}
+  {classes}
+  {...$$restProps}
+>
+  <slot />
+</Base>

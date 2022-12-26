@@ -14,15 +14,25 @@ $badge-default-variant: "secondary";
   border-radius: 20px;
   font-size: $badge-font-size;
   vertical-align: baseline;
-
-  .btn > & {
+  color: red;
+  
+  .button>& {
     margin-left: 0.5rem;
   }
 
-  @each $key, $value in $sizes {
-    &.badge-#{$key} {
+  @each $key,
+  $value in $colors {
+    .badge-color-#{$key} {
+      color: red;
+    }
+  }
+
+  @each $key,
+  $value in $sizes {
+    &.badge-size-#{$key} {
       font-size: #{$value}em;
       padding: 0 #{calc($value/3)}em;
+
       &:empty {
         height: #{$value}rem;
         padding: 0 #{calc($value/2)}rem;

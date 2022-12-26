@@ -1,12 +1,16 @@
-<script>
-	import clsx from 'clsx';
+<script lang="ts">
+  import { get_current_component, type ComponentProps } from "svelte/internal";
+  import Base from "../base/Base.svelte";
 
-	let className = '';
-	export { className as class };
-
-	$: classes = clsx('btn-list', className);
+  interface $$Porps extends ComponentProps<Base> {}
+  export let el: $$Porps["el"];
 </script>
 
-<div class={classes}>
-	<slot />
-</div>
+<Base
+  bind:el
+  name="button-list"
+  component={get_current_component()}
+  {...$$restProps}
+>
+  <slot />
+</Base>
